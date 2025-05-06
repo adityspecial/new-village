@@ -17,6 +17,10 @@ const Navbar = () => {
     if (submenuTimeout.current) clearTimeout(submenuTimeout.current);
     setActiveSubmenu(itemName);
   };
+  const [mobileOpenMenus, setMobileOpenMenus] = useState<{ [key: string]: boolean }>({});
+const toggleMobileMenu = (name: string) => {
+  setMobileOpenMenus((prev) => ({ ...prev, [name]: !prev[name] }));
+};
 
   const handleMouseLeaveSubmenu = () => {
     submenuTimeout.current = setTimeout(() => {
@@ -195,10 +199,65 @@ const Navbar = () => {
         </div>
 
         {isOpen && (
-          <div className="md:hidden mt-2 pb-4">
-            {/* Mobile menu items go here */}
-          </div>
+  <div className="md:hidden mt-2 pb-4 space-y-2">
+    {navItems.map((item) => (
+      <div key={item.name} className="px-2">
+        {/* Main menu always navigates */}
+        <Link
+          to={item.path}
+          className="flex justify-between items-center text-white py-2 hover:bg-amber-600 rounded px-2"
+          onClick={() => setIsOpen(false)}
+        >
+          {item.name}
+        </Link>
+
+        {/* If submenu exists, render toggle separately */}
+        {item.submenu && (
+          <>
+            <div
+              className="flex justify-between items-center text-sm text-white px-4 py-2 cursor-pointer"
+              onClick={() => toggleMobileMenu(item.name)}
+            >
+              <span>Show {item.name} Options</span>
+              <span>{mobileOpenMenus[item.name] ? '▲' : '▼'}</span>
+            </div>
+
+            {mobileOpenMenus[item.name] && (
+              <div className="pl-6 space-y-1">
+                {item.submenu.map((subItem) => (
+                  <div key={subItem.name}>
+                    <Link
+                      to={subItem.path}
+                      className="block text-white text-sm py-1 hover:bg-amber-500 rounded px-2"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {subItem.name}
+                    </Link>
+
+                    {subItem.children && (
+                      <div className="pl-4 space-y-1">
+                        {subItem.children.map((child) => (
+                          <Link
+                            key={child.name}
+                            to={child.path}
+                            className="block text-white text-xs py-1 hover:bg-amber-400 rounded px-2"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {child.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </>
         )}
+      </div>
+    ))}
+  </div>
+)}
       </div>
     </nav>
   );

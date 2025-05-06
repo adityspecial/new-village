@@ -35,8 +35,8 @@ import RuralEmpowerment from './components/Jeevadhara';
 
 
 // Work -> Environment
-/*import Environment from './pages/work/environment/Environment';
-
+import Environment from '../src/components/Environment';
+/*
 // Impact subpages
 import Newsletter from './pages/impact/Newsletter';
 import SuccessStories from './pages/impact/SuccessStories';
@@ -68,8 +68,8 @@ function App() {
              <Route path="/about/modelvillage" element={<ModelVillage />} /> 
 {/*        <Route path="/about/financial-reports" element={<FinancialReports />} />   */}
   
-{/*    <Route path="/work/environment/environment" element={<EkGaon />} /> */}
- 
+    <Route path="/work/environment" element={<Environment />} /> 
+ {/*
             {/* Impact Subpages */}
         {  /*  <Route path="/impact/newsletter" element={<Newsletter />} />
             <Route path="/impact/success-stories" element={<SuccessStories />} />
