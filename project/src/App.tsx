@@ -58,7 +58,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/work" element={<Work />} />
             <Route path="/impact" element={<Impact />} />
-            <Route path="/resources" element={<Resources />} />
+            <Route path="/resources/*" element={<Resources />} />
             <Route path="/get-involved" element={<GetInvolved />} />
             <Route path="/donate" element={<Donate />} />
 
