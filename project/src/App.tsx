@@ -17,9 +17,9 @@ import Donate from './pages/Donate';
 // About subpages
 
 import TeamPage from './components/TeamPage';
-import ModelVillage from './pages/about/ModelVillage';
+// import ModelVillage from './pages/about/ModelVillage';
 // import FinancialReports from './pages/about/FinancialReports';
-import OurStory from './pages/about/OurStory';
+import OurStory from './components/Our-Story';
 // import SoilHealth from './pages/work/agriculture/SoilHealth';
 // Work -> Education
 import AksharPrabhavam from './components/AksharPrabhavam';
@@ -63,13 +63,13 @@ function App() {
             <Route path="/donate" element={<Donate />} />
 
             {/* About Subpages */}
-         {  <Route path="/about/story" element={<OurStory />} />
+          <Route path="/about/ourstory" element={<OurStory />} />
             <Route path="/about/team" element={<TeamPage />} />
-            <Route path="/about/model-village" element={<ModelVillage />} />
+            {/* <Route path="/about/model-village" element={<ModelVillage />} /> */}
 {/*        <Route path="/about/financial-reports" element={<FinancialReports />} />   */}
   
 {/*    <Route path="/work/environment/environment" element={<EkGaon />} /> */}
- }
+ 
             {/* Impact Subpages */}
         {  /*  <Route path="/impact/newsletter" element={<Newsletter />} />
             <Route path="/impact/success-stories" element={<SuccessStories />} />
