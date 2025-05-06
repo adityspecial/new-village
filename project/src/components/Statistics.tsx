@@ -1,61 +1,188 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trees as Tree, GraduationCap, Users, Heart } from 'lucide-react';
-
-const stats = [
-  {
-    icon: Tree,
-    value: '10,000+',
-    label: 'Trees Planted',
-    color: 'text-green-600',
-  },
-  {
-    icon: GraduationCap,
-    value: '500+',
-    label: 'Students Educated',
-    color: 'text-blue-600',
-  },
-  {
-    icon: Users,
-    value: '200+',
-    label: 'Women Entrepreneurs',
-    color: 'text-purple-600',
-  },
-  {
-    icon: Heart,
-    value: '50+',
-    label: 'Villages Impacted',
-    color: 'text-red-600',
-  },
-];
+import { GraduationCap, Heart, Users, Trees, MapPin } from 'lucide-react';
 
 const Statistics = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-[#f7f7f7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-amber-900 mb-12">
-          Our Impact
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
+        {/* Education Section */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-center text-amber-900 mb-4">
+            Education Impact
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <motion.div
-              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="text-center border p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <stat.icon className={`w-12 h-12 ${stat.color} mx-auto mb-4`} />
+              <GraduationCap className="w-12 h-12 text-blue-600 mx-auto mb-4" />
               <motion.div
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 className="text-4xl font-bold text-gray-900 mb-2"
               >
-                {stat.value}
+                2,800+
               </motion.div>
-              <p className="text-gray-600">{stat.label}</p>
+              <p className="text-gray-600">Children Educated</p>
             </motion.div>
-          ))}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center border p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <MapPin className="w-12 h-12 text-amber-600 mx-auto mb-4" />
+              <p className="text-lg font-bold text-gray-900">Villages Reached:</p>
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                className="text-4xl font-bold text-gray-900 mb-2"
+              >
+                70
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Health Section */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-center text-amber-900 mb-4">
+            Health Impact
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center border p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <Heart className="w-12 h-12 text-red-600 mx-auto mb-4" />
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                className="text-4xl font-bold text-gray-900 mb-2"
+              >
+                7,000+
+              </motion.div>
+              <p className="text-gray-600">Health Beneficiaries</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center border p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <MapPin className="w-12 h-12 text-amber-600 mx-auto mb-4" />
+              <p className="text-lg font-bold text-gray-900">Villages Reached:</p>
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                className="text-4xl font-bold text-gray-900 mb-2"
+              >
+                45
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Agriculture Section */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-center text-amber-900 mb-4">
+            Agriculture Impact
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center border p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <Users className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                className="text-4xl font-bold text-gray-900 mb-2"
+              >
+                850+
+              </motion.div>
+              <p className="text-gray-600">Farmers Impacted</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center border p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <MapPin className="w-12 h-12 text-amber-600 mx-auto mb-4" />
+              <p className="text-lg font-bold text-gray-900">Villages Reached:</p>
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                className="text-4xl font-bold text-gray-900 mb-2"
+              >
+                250
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Environment Section */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-center text-amber-900 mb-4">
+            Environment Impact
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center border p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <Trees className="w-12 h-12 text-green-700 mx-auto mb-4" />
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                className="text-4xl font-bold text-gray-900 mb-2"
+              >
+                5,000+
+              </motion.div>
+              <p className="text-gray-600">Saplings Planted</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center border p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <MapPin className="w-12 h-12 text-amber-600 mx-auto mb-4" />
+              <p className="text-lg font-bold text-gray-900">Villages Reached:</p>
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                className="text-4xl font-bold text-gray-900 mb-2"
+              >
+                11
+              </motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center border p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <p className="text-lg font-bold text-gray-900">CO₂ Emission Reduced:</p>
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                className="text-4xl font-bold text-gray-900 mb-2"
+              >
+                11.25 tons
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
