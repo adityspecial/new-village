@@ -1,29 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Home, Info, Book, Heart, Users, DollarSign } from 'lucide-react';
+import {
+  Menu, X, Landmark, PackageSearch, TrendingUp, Files, Handshake, IndianRupee
+} from 'lucide-react';
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [activeSubSubmenu, setActiveSubSubmenu] = useState<string | null>(null);
 
+  const submenuTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const subSubmenuTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleMouseEnterSubmenu = (itemName: string) => {
+    if (submenuTimeout.current) clearTimeout(submenuTimeout.current);
+    setActiveSubmenu(itemName);
+  };
+
+  const handleMouseLeaveSubmenu = () => {
+    submenuTimeout.current = setTimeout(() => {
+      setActiveSubmenu(null);
+      setActiveSubSubmenu(null);
+    }, 300);
+  };
+
+  const handleMouseEnterSubSubmenu = (subItemName: string) => {
+    if (subSubmenuTimeout.current) clearTimeout(subSubmenuTimeout.current);
+    setActiveSubSubmenu(subItemName);
+  };
+
+  const handleMouseLeaveSubSubmenu = () => {
+    subSubmenuTimeout.current = setTimeout(() => {
+      setActiveSubSubmenu(null);
+    }, 300);
+  };
+
   const navItems = [
     {
       name: 'About Us',
       path: '/about',
-      icon: Info,
+      icon: Landmark,
       submenu: [
-        { name: 'Our Story', path: '/about/story' },
-        { name: 'Vision & Mission', path: '/about/vision' },
+        { name: 'Our Story', path: '/about/ourstory' },
         { name: 'Team', path: '/about/team' },
-        { name: 'Model Village', path: '/about/model-village' },
+        { name: 'Model Village', path: '/about/modelvillage' },
         { name: 'Financial Reports', path: '/about/reports' }
       ]
     },
     {
       name: 'Our Work',
       path: '/work',
-      icon: Book,
+      icon: PackageSearch,
       submenu: [
         {
           name: 'Education',
@@ -38,33 +66,13 @@ const Navbar = () => {
           name: 'Agriculture',
           path: '/work/agriculture',
           children: [
-            { name: 'Farmer Training', path: '/work/agriculture/farmer-training' },
-            { name: 'Farmer Field School', path: '/work/agriculture/farmer-field-school' },
+            { name: 'Farmer Tranning', path: '/work/agriculture/farmer-trannig' },
             { name: 'Soil Health', path: '/work/agriculture/soil' }
           ]
         },
-        {
-          name: 'Environment',
-          path: '/work/environment',
-          children: [
-            { name: 'Ek Gaon - Ek Jangal', path: '/work/environment/ek-gaon-ek-jangal' }
-          ]
-        },
-        {
-          name: 'Health',
-          path: '/work/health',
-          children: [
-            { name: 'Health and Hygiene Campaign', path: '/work/health/hygiene-campaign' },
-            { name: 'Yoga', path: '/work/health/yoga' }
-          ]
-        },
-        {
-          name: 'Livelihood',
-          path: '/work/livelihood',
-          children: [
-            { name: 'Jeevandhara', path: '/work/livelihood/jeevandhara' }
-          ]
-        },
+        { name: 'Environment', path: '/work/environment' },
+        { name: 'Health', path: '/work/health' },
+        { name: 'Livelihood', path: '/work/livelihood' },
         { name: 'Gram Siri', path: '/work/gram-siri' },
         { name: 'KIF Chapters', path: '/work/chapters' },
         { name: 'Adopted Villages', path: '/work/villages' }
@@ -73,7 +81,7 @@ const Navbar = () => {
     {
       name: 'Impact',
       path: '/impact',
-      icon: Heart,
+      icon: TrendingUp,
       submenu: [
         { name: 'Newsletter', path: '/impact/newsletter' },
         { name: 'Success Stories', path: '/impact/stories' },
@@ -85,7 +93,7 @@ const Navbar = () => {
     {
       name: 'Resources',
       path: '/resources',
-      icon: Book,
+      icon:   Files,
       submenu: [
         { name: 'Publications', path: '/resources/publications' },
         { name: 'Videos', path: '/resources/videos' }
@@ -94,7 +102,7 @@ const Navbar = () => {
     {
       name: 'Get Involved',
       path: '/get-involved',
-      icon: Users,
+      icon: Handshake,
       submenu: [
         { name: 'Volunteering', path: '/get-involved/volunteer' },
         { name: 'CSR Partnerships', path: '/get-involved/csr' },
@@ -106,75 +114,62 @@ const Navbar = () => {
     {
       name: 'Donate',
       path: '/donate',
-      icon: DollarSign
+      icon: IndianRupee
     }
   ];
 
-  const toggleSubmenu = (itemName: string) => {
-    setActiveSubmenu(activeSubmenu === itemName ? null : itemName);
-    setActiveSubSubmenu(null);
-  };
-
-  const toggleSubSubmenu = (subItemName: string) => {
-    setActiveSubSubmenu(activeSubSubmenu === subItemName ? null : subItemName);
-  };
-
   return (
-    <nav className="bg-amber-50 shadow-lg z-50 relative">
+    <nav className="bg-orange-800 text-white pattern-bg shadow-md z-50 font-body font-semibold relative">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center space-x-3">
-            <Home className="h-8 w-8 text-amber-700" />
-            <span className="text-xl font-semibold text-amber-900">KIF</span>
+          <Link to="/" className="flex items-center space-x-2">
+            <img src="/images/Navbar/logo.jpg" alt="Logo" className="h-8 w-8 object-cover" />
+            <span className="text-xl text-white font-heading">KIF</span>
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <div
                 key={item.name}
                 className="relative group"
-                onMouseEnter={() => item.submenu && setActiveSubmenu(item.name)}
-                onMouseLeave={() => {
-                  setActiveSubmenu(null);
-                  setActiveSubSubmenu(null);
-                }}
+                onMouseEnter={() => item.submenu && handleMouseEnterSubmenu(item.name)}
+                onMouseLeave={handleMouseLeaveSubmenu}
               >
-                <div className="flex items-center space-x-1">
-                  <Link
-                    to={item.path}
-                    className="text-amber-900 hover:text-amber-600 flex items-center"
-                  >
-                    <item.icon className="h-4 w-4 mr-1" />
-                    <span>{item.name}</span>
-                  </Link>
-                </div>
+                <Link
+                  to={item.path}
+                  className="relative text-white hover:text-amber-400 transition duration-200 py-2 flex items-center"
+                >
+                  <item.icon className="h-4 w-4 mr-1" />
+                  <span className="relative before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 hover:before:w-full before:bg-amber-400 before:transition-all before:duration-300">
+                    {item.name}
+                  </span>
+                </Link>
 
-                {/* First-Level Dropdown */}
                 {item.submenu && activeSubmenu === item.name && (
-                  <div className="absolute left-0 top-full mt-0 w-56 bg-white rounded-md shadow-lg py-2 z-50 border border-amber-100">
+                  <div className="absolute left-0 top-full w-56 bg-white border border-amber-200 rounded shadow-lg mt-2 py-2 z-40">
                     {item.submenu.map((subItem) => (
                       <div
                         key={subItem.name}
                         className="relative group"
-                        onMouseEnter={() => subItem.children && setActiveSubSubmenu(subItem.name)}
-                        onMouseLeave={() => setActiveSubSubmenu(null)}
+                        onMouseEnter={() =>
+                          subItem.children && handleMouseEnterSubSubmenu(subItem.name)
+                        }
+                        onMouseLeave={handleMouseLeaveSubSubmenu}
                       >
                         <Link
                           to={subItem.path}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50"
+                          className="block px-4 py-2 text-sm text-gray-800 hover:bg-amber-50 hover:text-amber-400"
                         >
                           {subItem.name}
                         </Link>
 
-                        {/* Second-Level Dropdown */}
                         {subItem.children && activeSubSubmenu === subItem.name && (
-                          <div className="absolute left-full top-0 w-56 bg-white shadow-lg border border-amber-100 rounded-md">
+                          <div className="absolute left-full top-0 w-56 bg-white shadow-lg border border-amber-200 rounded-md">
                             {subItem.children.map((child) => (
                               <Link
                                 key={child.name}
                                 to={child.path}
-                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50"
+                                className="block px-4 py-2 text-sm text-gray-800 hover:bg-amber-50 hover:text-amber-400"
                               >
                                 {child.name}
                               </Link>
@@ -189,91 +184,19 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Hamburger Icon */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-amber-900 hover:text-amber-600 focus:outline-none"
+              className="text-white hover:text-amber-400 focus:outline-none"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4">
-            {navItems.map((item) => (
-              <div key={item.name} className="mb-1">
-                <div className="flex justify-between items-center">
-                  <Link
-                    to={item.path}
-                    className="flex items-center space-x-2 text-left text-amber-900 px-4 py-2 hover:bg-amber-100 w-full"
-                    onClick={() => !item.submenu && setIsOpen(false)}
-                  >
-                    <item.icon className="h-4 w-4" />
-                    <span>{item.name}</span>
-                  </Link>
-                  {item.submenu && (
-                    <button
-                      className="px-4 py-2 text-amber-900 focus:outline-none"
-                      onClick={() => toggleSubmenu(item.name)}
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d={activeSubmenu === item.name ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"} />
-                      </svg>
-                    </button>
-                  )}
-                </div>
-
-                {/* First-Level Submenu */}
-                {item.submenu && activeSubmenu === item.name && (
-                  <div className="pl-6 mt-1 space-y-1">
-                    {item.submenu.map((subItem) => (
-                      <div key={subItem.name}>
-                        <div className="flex justify-between items-center">
-                          <Link
-                            to={subItem.path}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 rounded-md"
-                            onClick={() => !subItem.children && setIsOpen(false)}
-                          >
-                            {subItem.name}
-                          </Link>
-                          {subItem.children && (
-                            <button
-                              className="px-2 py-1 text-amber-900 focus:outline-none"
-                              onClick={() => toggleSubSubmenu(subItem.name)}
-                            >
-                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                  d={activeSubSubmenu === subItem.name ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"} />
-                              </svg>
-                            </button>
-                          )}
-                        </div>
-
-                        {/* Second-Level Submenu */}
-                        {subItem.children && activeSubSubmenu === subItem.name && (
-                          <div className="pl-6 mt-1 space-y-1">
-                            {subItem.children.map((child) => (
-                              <Link
-                                key={child.name}
-                                to={child.path}
-                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 rounded-md"
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {child.name}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+          <div className="md:hidden mt-2 pb-4">
+            {/* Mobile menu items go here */}
           </div>
         )}
       </div>
