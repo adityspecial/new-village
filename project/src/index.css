@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-900 bg-amber-50;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-white opacity-75 hover:opacity-100 transition-opacity duration-200;
+}
+
+.swiper-pagination-bullet {
+  @apply bg-white opacity-75;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-white opacity-100;
+}
