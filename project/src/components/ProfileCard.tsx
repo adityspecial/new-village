@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 interface ProfileCardProps {
   name: string;
@@ -6,6 +7,12 @@ interface ProfileCardProps {
   imageUrl: string;
   username: string;
   description: string;
+  socialLinks: {
+    facebook: string;
+    twitter: string;
+    instagram: string;
+    linkedin: string;
+  };
 }
 
 const ProfileCard: React.FC<ProfileCardProps> = ({
@@ -14,10 +21,11 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   imageUrl,
   username,
   description,
+  socialLinks,
 }) => {
-  const [hovered, setHovered] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const containerStyle: React.CSSProperties = {
+  const cardStyle: React.CSSProperties = {
     position: 'relative',
     width: '300px',
     height: '300px',
@@ -31,22 +39,6 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    transition: 'transform 0.5s ease',
-    transform: hovered ? 'scale(1.1)' : 'scale(1)',
-  };
-
-  const hoverOverlayStyle: React.CSSProperties = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    background: 'rgba(217, 14, 14, 0.85)',
-    color: 'white',
-    padding: '20px',
-    opacity: hovered ? 1 : 0,
-    transition: 'opacity 0.4s ease-in-out',
-    zIndex: 2,
   };
 
   const textWrapperStyle: React.CSSProperties = {
@@ -64,37 +56,101 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     textDecoration: 'none',
   };
 
+  const modalOverlayStyle: React.CSSProperties = {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100vw',
+    height: '100vh',
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    display: isModalOpen ? 'flex' : 'none',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 9999,
+  };
+
+  const modalContentStyle: React.CSSProperties = {
+    backgroundColor: '#fff',
+    width: '80%',
+    maxWidth: '900px',
+    borderRadius: '10px',
+    overflow: 'hidden',
+    display: 'flex',
+    boxShadow: '0 12px 30px rgba(0,0,0,0.5)',
+  };
+
+  const modalImgStyle: React.CSSProperties = {
+    width: '50%',
+    objectFit: 'cover',
+  };
+
+  const modalTextStyle: React.CSSProperties = {
+    padding: '30px',
+    width: '50%',
+    overflowY: 'auto',
+  };
+
+  const closeButtonStyle: React.CSSProperties = {
+    position: 'absolute',
+    top: '20px',
+    right: '30px',
+    fontSize: '30px',
+    fontWeight: 'bold',
+    color: '#fff',
+    cursor: 'pointer',
+    zIndex: 10000,
+  };
+
   return (
-    <div
-      style={containerStyle}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <img src={imageUrl} alt={name} style={imgStyle} />
-      <div style={hoverOverlayStyle}>
-        <h3 style={{ margin: 0, fontSize: '22px' }}>{name}</h3>
-        <h4
-          style={{
-            margin: '10px 0',
-            fontSize: '14px',
-            letterSpacing: '1px',
-            textTransform: 'uppercase',
-            borderBottom: '1px solid #fff',
-            paddingBottom: '8px',
-          }}
+    <>
+      <div style={cardStyle} onClick={() => setIsModalOpen(true)}>
+        <img src={imageUrl} alt={name} style={imgStyle} />
+        <div style={textWrapperStyle}>
+          <strong style={{ fontSize: '18px' }}>{name}</strong>
+          <br />
+          <h4 style={{ color: '#FF5A22', marginTop: 0 }}>{role}</h4>
+        </div>
+      </div>
+
+      {isModalOpen && (
+        <div
+          style={modalOverlayStyle}
+          onClick={() => setIsModalOpen(false)} // Closes when clicking outside
         >
-          {role}
-        </h4>
-        <p style={{ fontSize: '14px', lineHeight: '18px' }}>{description}</p>
-      </div>
-      <div style={textWrapperStyle}>
-        <strong style={{ fontSize: '18px' }}>{name}</strong>
-        <br />
-        <a href="#" style={usernameStyle}>
-          @{username}
-        </a>
-      </div>
-    </div>
+          <div
+            style={modalContentStyle}
+            onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside
+          >
+            <div style={closeButtonStyle} onClick={() => setIsModalOpen(false)}>
+              &times;
+            </div>
+            <img src={imageUrl} alt={name} style={modalImgStyle} />
+            <div style={modalTextStyle}>
+              <h2>{name}</h2>
+              <h4 style={{ color: '#FF5A22', marginTop: 0 }}>{role}</h4>
+              <p style={{ fontSize: '14px', lineHeight: '22px' }}>{description}</p>
+              <p style={{ color: '#999' }}>@{username}</p>
+
+              {/* Social Media Links */}
+              <div style={{ marginTop: '20px', display: 'flex', gap: '10px' }}>
+                <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                  <Facebook className="h-6 w-6" />
+                </a>
+                <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                  <Twitter className="h-6 w-6" />
+                </a>
+                <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <Instagram className="h-6 w-6" />
+                </a>
+                <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <Linkedin className="h-6 w-6" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
