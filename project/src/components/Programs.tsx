@@ -1,54 +1,86 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Scaling as Seedling, BookOpen, ShoppingBag, Users } from 'lucide-react';
 
-const programs = [
+interface ProgramItem {
+  id: number;
+  title: string;
+  description: string;
+  imageUrl: string;
+}
+
+const programData: ProgramItem[] = [
   {
-    icon: Seedling,
-    title: 'Sustainable Farming',
-    description: 'Promoting organic farming practices and sustainable agriculture',
+    id: 1,
+    title: "Akshara Prabhavam",
+    description: "Akshara Prabhavam is a grassroots initiative transforming childhood education in rural Dharwad. We nurture disciplined, creative minds through mentorship, value-based learning, and holistic development in a safe, inspiring space.",
+    imageUrl: "/images/Programs/AP.jpg",
   },
   {
-    icon: BookOpen,
-    title: 'Rural Education',
-    description: 'Quality education initiatives for village children',
+    id: 2,
+    title: "Farmers Training",
+    description: "At Karnataka Incubation Foundation (KIF), we empower farmers with practical training, sustainable techniques, and market insights—building confidence, improving yields, and unlocking rural entrepreneurship.",
+    imageUrl: "/images/Programs/FT.jpg",
   },
   {
-    icon: ShoppingBag,
-    title: 'Craft Development',
-    description: 'Supporting local artisans and traditional crafts',
+    id: 3,
+    title: "Gram Siri",
+    description: "In 1985, electric poles were installed bringing light to every home, transforming village life and enabling evening activities.",
+    imageUrl: "/images/Programs/GS.JPG",
   },
   {
-    icon: Users,
-    title: 'Community Building',
-    description: 'Strengthening village communities through collective programs',
-  },
+    id: 4,
+    title: "Environment",
+    description: "A rural greening movement by KIF to help communities grow forests, restore land, and reconnect children with nature.Fighting deforestation, water scarcity, and climate change—village by village.",
+    imageUrl: "/images/Programs/Env.jpg",
+  }
 ];
 
-const Programs = () => {
+const Programs: React.FC = () => {
   return (
-    <section className="py-16 bg-amber-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-amber-900 mb-12">
-          Our Programs
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {programs.map((program, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              className="bg-white p-6 rounded-lg shadow-lg"
-            >
-              <program.icon className="w-12 h-12 text-amber-600 mb-4" />
-              <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                {program.title}
-              </h3>
-              <p className="text-gray-600">{program.description}</p>
-            </motion.div>
-          ))}
-        </div>
+    <div className="bg-amber-100 min-h-screen py-16 pattern-bg-yellow">
+      <motion.h1 
+        className="text-4xl font-bold text-center text-orange-800 mb-12"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        Our Programs
+      </motion.h1>
+
+      <div className="space-y-4 px-4 max-w-5xl mx-auto">
+        {programData.map((item, index) => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16"
+          >
+            <div className={`grid md:grid-cols-2 gap-6 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+              <div className={`${index % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
+                <div className="bg-white h-full p-6 rounded-2xl shadow-xl border-4 border-orange-300 transform transition duration-300 hover:shadow-2xl flex flex-col justify-center">
+                  <h2 className="text-2xl font-bold text-orange-700 mb-2">{item.title}</h2>
+                  <p className="text-lg text-gray-700">{item.description}</p>
+                </div>
+              </div>
+              
+              <div className={`${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
+                <div className="overflow-hidden rounded-2xl shadow-xl border-4 border-orange-300 h-64">
+                  <motion.img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 
