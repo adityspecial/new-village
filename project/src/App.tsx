@@ -32,6 +32,7 @@ import EkGaon from './components/Ek-Gaon';
 import Health from './components/Health-Hyegine';
 import Yoga from './components/Yoga';
 import RuralEmpowerment from './components/Jeevadhara';
+import SuccessStories from './components/SuccessStories';
 
 
 // Work -> Environment
@@ -58,7 +59,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/work" element={<Work />} />
             <Route path="/impact" element={<Impact />} />
-            <Route path="/resources" element={<Resources />} />
+            <Route path="/resources/*" element={<Resources />} />
             <Route path="/get-involved" element={<GetInvolved />} />
             <Route path="/donate" element={<Donate />} />
 
@@ -94,6 +95,7 @@ function App() {
             <Route path="/work/agriculture/ek-gaon-ek-jangal" element={<EkGaon />} />
             <Route path="/work/health/hygiene-campaign" element={<Health />} />
             <Route path="/work/health/yoga" element={<Yoga />} />
+            <Route path="/impact/stories" element={<SuccessStories />} />
 
           </Routes>
         </main>
