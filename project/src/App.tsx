@@ -16,12 +16,11 @@ import Donate from './pages/Donate';
 
 // About subpages
 
-import TeamPage from './components/Team';
-/*import ModelVillage from './pages/about/ModelVillage';
-import FinancialReports from './pages/about/FinancialReports';
+import TeamPage from './components/TeamPage';
+import ModelVillage from './pages/about/ModelVillage';
+// import FinancialReports from './pages/about/FinancialReports';
 import OurStory from './pages/about/OurStory';
-import SoilHealth from './pages/work/agriculture/SoilHealth';
-import VisionMission from './pages/about/VisionMission';*/
+// import SoilHealth from './pages/work/agriculture/SoilHealth';
 // Work -> Education
 import AksharPrabhavam from './components/AksharPrabhavam';
 import SpokenEnglish from './components/SpokenEnglish';
@@ -64,13 +63,12 @@ function App() {
             <Route path="/donate" element={<Donate />} />
 
             {/* About Subpages */}
-         {/*   <Route path="/about/story" element={<OurStory />} />
-            <Route path="/about/vision" element={<VisionMission />} />
+         {  <Route path="/about/story" element={<OurStory />} />
             <Route path="/about/team" element={<TeamPage />} />
             <Route path="/about/model-village" element={<ModelVillage />} />
-       <Route path="/about/financial-reports" element={<FinancialReports />} />  */   
+{/*        <Route path="/about/financial-reports" element={<FinancialReports />} />   */}
   
-   <Route path="/work/environment/environment" element={<EkGaon />} />
+{/*    <Route path="/work/environment/environment" element={<EkGaon />} /> */}
  }
             {/* Impact Subpages */}
         {  /*  <Route path="/impact/newsletter" element={<Newsletter />} />
