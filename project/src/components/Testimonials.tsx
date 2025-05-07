@@ -1,71 +1,88 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Quote } from 'lucide-react';
+import { Quote, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const testimonials = [
   {
-    name: 'Rajesh Kumar',
-    role: 'Local Farmer',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d',
-    quote: 'The sustainable farming techniques I learned through Village Life have transformed my farm. My yields have improved, and I\'m now teaching these methods to other farmers in my community.',
+    id: 1,
+    name: 'Varshini Hittalmani',
+    role: 'Student',
+    image: '/public/Images/SuccessStories/7 (1).jpeg',
+    quote: 'I am Varshini, a girl from Javoor, and my childhood was filled with tragedy. My father, due to personal reasons, took my mother\'s life and...',
+    link:"impact/stories",
   },
   {
-    name: 'Priya Singh',
-    role: 'Artisan',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb',
-    quote: 'Thanks to the craft development program, I\'ve been able to preserve our traditional art while making it economically viable. The support has helped me establish my own workshop.',
+    id: 2,
+    name: 'Vatsala Madiwalar',
+    role: 'Mentor',
+    image: '/public/Images/SuccessStories/2.jpg',
+    quote: 'Before I became a mentor at Akshar Kendra, I believed that parents mainly focused on their children’s exam results. Given Akshar Kendra’s emphasis on value-based education, I wasn’t sure if parents...',
+    link:"impact/stories",
   },
   {
-    name: 'Amit Patel',
-    role: 'Village Teacher',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d',
+    id: 3,
+    name: 'Prasanna Kumar',
+    role: 'Volunteer',
+    image: '/public/images/Volunteers/Prasanna.jpg',
     quote: 'The educational initiatives have brought modern teaching methods to our village school. Our students now have access to quality education while staying connected to their roots.',
-  },
+    link:"get-involved/volunteer",
+  }
 ];
 
 const Testimonials = () => {
+  const navigate = useNavigate();
+
   return (
-    <section className="py-16 bg-amber-100">
+    <section className="py-16 bg-amber-100 pattern-bg-yellow">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-center text-amber-900 mb-12">
           Voices from the Village
         </h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-lg shadow-lg p-6 relative"
+          {testimonials.map((testimonial) => (
+            <div
+              key={testimonial.id}
+              className="bg-white rounded-xl shadow-lg p-6 relative flex flex-col justify-between"
             >
-              <div className="absolute -top-4 left-6">
-                <Quote className="w-8 h-8 text-amber-500 transform rotate-180" />
-              </div>
-              
-              <div className="flex items-center mb-6 mt-4">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-16 h-16 rounded-full object-cover border-2 border-amber-500"
-                />
-                <div className="ml-4">
-                  <h3 className="font-semibold text-amber-900">{testimonial.name}</h3>
-                  <p className="text-amber-700">{testimonial.role}</p>
+              <div>
+                <div className="absolute -top-4 left-6 bg-amber-50 rounded-full p-2">
+                  <Quote className="w-6 h-6 text-amber-500" />
                 </div>
+
+                <div className="flex items-center mb-6 mt-4">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-16 h-16 rounded-full object-cover border-2 border-amber-500"
+                  />
+                  <div className="ml-4">
+                    <h3 className="font-semibold text-amber-900">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-amber-700">
+                      {testimonial.role}
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-gray-600 italic leading-relaxed mb-6">
+                  "{testimonial.quote}"
+                </p>
               </div>
-              
-              <motion.p 
-                className="text-gray-600 italic"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: index * 0.3 }}
-              >
-                "{testimonial.quote}"
-              </motion.p>
-            </motion.div>
+
+                  <button
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    navigate(`/${testimonial.link}`);
+                  }}
+                  className="mt-auto flex items-center gap-2 text-amber-600 hover:text-amber-800 transition-colors duration-300"
+                >
+                  Read full story
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+            </div>
           ))}
         </div>
       </div>
