@@ -33,6 +33,7 @@ import Health from './components/Health-Hyegine';
 import Yoga from './components/Yoga';
 import RuralEmpowerment from './components/Jeevadhara';
 import SuccessStories from './components/SuccessStories';
+import VolunteerPage from './components/VolunteerPage';
 
 
 // Work -> Environment
@@ -96,6 +97,7 @@ function App() {
             <Route path="/work/health/hygiene-campaign" element={<Health />} />
             <Route path="/work/health/yoga" element={<Yoga />} />
             <Route path="/impact/stories" element={<SuccessStories />} />
+            <Route path="/get-involved/volunteer" element={<VolunteerPage />} />
 
           </Routes>
         </main>
