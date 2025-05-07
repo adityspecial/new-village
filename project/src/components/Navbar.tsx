@@ -82,9 +82,9 @@ const toggleMobileMenu = (name: string) => {
           ]
          },
         { name: 'Livelihood', path: '/work/livelihood' },
-        { name: 'Gram Siri', path: '/work/gram-siri' },
-        { name: 'KIF Chapters', path: '/work/chapters' },
-        { name: 'Adopted Villages', path: '/work/villages' }
+        // { name: 'Gram Siri', path: '/work/gram-siri' },
+        // { name: 'KIF Chapters', path: '/work/chapters' },
+        // { name: 'Adopted Villages', path: '/work/villages' }
       ]
     },
     {
@@ -92,9 +92,9 @@ const toggleMobileMenu = (name: string) => {
       path: '/impact',
       icon: TrendingUp,
       submenu: [
-        { name: 'Newsletter', path: '/impact/newsletter' },
+        // { name: 'Newsletter', path: '/impact/newsletter' },
         { name: 'Success Stories', path: '/impact/stories' },
-        { name: 'Reports', path: '/impact/reports' },
+        // { name: 'Reports', path: '/impact/reports' },
         { name: 'Gallery', path: '/impact/gallery' },
         { name: 'Share Experience', path: '/impact/share' }
       ]
@@ -115,7 +115,7 @@ const toggleMobileMenu = (name: string) => {
       submenu: [
         { name: 'Volunteering', path: '/get-involved/volunteer' },
         { name: 'CSR Partnerships', path: '/get-involved/csr' },
-        { name: 'NGO Partnership', path: '/get-involved/ngo' },
+        // { name: 'NGO Partnership', path: '/get-involved/ngo' },
         { name: 'Internships', path: '/get-involved/internships' },
         { name: 'Events', path: '/get-involved/events' }
       ]

@@ -44,24 +44,24 @@ const WorkOverview = () => {
       description: 'Creating sustainable income opportunities for rural communities.',
       link: '/work/livelihood'
     },
-    {
-      icon: Home,
-      title: 'Gram Siri',
-      description: 'Comprehensive village development program.',
-      link: '/work/gram-siri'
-    },
-    {
-      icon: Users,
-      title: 'KIF Chapters',
-      description: 'Our network of local chapters making a difference.',
-      link: '/work/chapters'
-    },
-    {
-      icon: MapPin,
-      title: 'Adopted Villages',
-      description: 'Villages under our development program.',
-      link: '/work/villages'
-    }
+    // {
+    //   icon: Home,
+    //   title: 'Gram Siri',
+    //   description: 'Comprehensive village development program.',
+    //   link: '/work/gram-siri'
+    // },
+    // {
+    //   icon: Users,
+    //   title: 'KIF Chapters',
+    //   description: 'Our network of local chapters making a difference.',
+    //   link: '/work/chapters'
+    // },
+    // {
+    //   icon: MapPin,
+    //   title: 'Adopted Villages',
+    //   description: 'Villages under our development program.',
+    //   link: '/work/villages'
+    // }
   ];
 
   return (

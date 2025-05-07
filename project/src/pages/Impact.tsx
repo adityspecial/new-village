@@ -14,24 +14,24 @@ const ImpactSection = ({ icon: Icon, title, description, link }: any) => (
 
 const ImpactOverview = () => {
   const sections = [
-    {
-      icon: Newspaper,
-      title: 'Newsletter',
-      description: 'Stay updated with our latest news and achievements.',
-      link: '/impact/newsletter'
-    },
+    // {
+    //   icon: Newspaper,
+    //   title: 'Newsletter',
+    //   description: 'Stay updated with our latest news and achievements.',
+    //   link: '/impact/newsletter'
+    // },
     {
       icon: Star,
       title: 'Success Stories',
       description: 'Real stories of transformation from our communities.',
       link: '/impact/stories'
     },
-    {
-      icon: FileText,
-      title: 'Reports',
-      description: 'Detailed reports of our activities and impact.',
-      link: '/impact/reports'
-    },
+    // {
+    //   icon: FileText,
+    //   title: 'Reports',
+    //   description: 'Detailed reports of our activities and impact.',
+    //   link: '/impact/reports'
+    // },
     {
       icon: Image,
       title: 'Gallery',

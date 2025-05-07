@@ -27,12 +27,6 @@ const GetInvolvedOverview = () => {
       link: '/get-involved/csr'
     },
     {
-      icon: Handshake,
-      title: 'NGO Partnership',
-      description: 'Collaborate with us for greater impact.',
-      link: '/get-involved/ngo'
-    },
-    {
       icon: GraduationCap,
       title: 'Internships',
       description: 'Gain valuable experience while contributing to rural development.',
