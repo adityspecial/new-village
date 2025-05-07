@@ -67,7 +67,7 @@ export default function OurStory() {
   }, [currentStep]);
 
   return (
-    <div className="min-h-screen py-16 px-4 md:px-8 bg-gray-50">
+    <div className=" bg-amber-200 min-h-screen py-16 px-4 md:px-8 pattern-bg-yellow">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
         Empowering Rural Karnataka: The Journey of Karnataka Incubation Foundation
