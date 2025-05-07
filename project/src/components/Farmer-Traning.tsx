@@ -114,10 +114,10 @@ const FarmerTraining: React.FC = () => {
             At Karnataka Incubation Foundation (KIF), we believe that empowered farmers can change the future of rural India. Our training programs are designed to equip farmers with:
           </p>
           <ul style={{ padding: 0, listStyleType: 'none', fontSize: '1rem', lineHeight: '1.6' }}>
-            <li>✅ Practical knowledge they can apply on their farms</li>
-            <li>✅ Affordable and sustainable techniques to improve yield and income</li>
-            <li>✅ Confidence to handle unexpected farming challenges</li>
-            <li>✅ Awareness of market trends, schemes, and entrepreneurship opportunities</li>
+            <li>- Practical knowledge they can apply on their farms</li>
+            <li>- Affordable and sustainable techniques to improve yield and income</li>
+            <li>- Confidence to handle unexpected farming challenges</li>
+            <li>- Awareness of market trends, schemes, and entrepreneurship opportunities</li>
           </ul>
         </div>
 
@@ -126,11 +126,11 @@ const FarmerTraining: React.FC = () => {
           <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>
             We conduct one-day training programs in villages and talukas to equip farmers and rural youth with practical skills in:
           </p>
-          <ul style={{ padding: 0, listStyleType: 'none', fontSize: '1rem', lineHeight: '1.6' }}>
-            <li>🌱 <strong>Farming Techniques:</strong> Organic farming, soil health, pest control, seed and water management</li>
-            <li>🐓 <strong>Livelihood Options:</strong> Poultry, sheep-goat rearing, and sericulture</li>
-            <li>📈 <strong>Business Skills:</strong> Record keeping, profit planning, market linkages, and government schemes</li>
-          </ul>
+          <ol style={{ padding: 0, listStyleType: 'none', fontSize: '1rem', lineHeight: '1.6' }}>
+            <li><strong>-Farming Techniques:</strong> Organic farming, soil health, pest control, seed and water management</li>
+            <li><strong>-Livelihood Options:</strong> Poultry, sheep-goat rearing, and sericulture</li>
+            <li><strong>-Business Skills:</strong> Record keeping, profit planning, market linkages, and government schemes</li>
+          </ol>
         </div>
       </section>
 

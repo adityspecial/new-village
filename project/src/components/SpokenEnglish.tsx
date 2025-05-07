@@ -118,25 +118,25 @@ const SpokenEnglish: React.FC = () => {
         <div style={cardStyle}>
           <h2 style={subheadingStyle}>Key Features</h2>
           <ul style={listStyle}>
-            <li><strong>🗣️ Conversational Practice:</strong> Interactive sessions for real-life conversations.</li>
-            <li><strong>📚 Pronunciation Techniques:</strong> Mastering the art of speaking clearly and correctly.</li>
-            <li><strong>📑 Grammar Lessons:</strong> Strengthening the foundations of English grammar.</li>
-            <li><strong>🎤 Public Speaking:</strong> Building confidence for speeches and presentations.</li>
+            <li><strong>Conversational Practice:</strong> Interactive sessions for real-life conversations.</li>
+            <li><strong>Pronunciation Techniques:</strong> Mastering the art of speaking clearly and correctly.</li>
+            <li><strong>Grammar Lessons:</strong> Strengthening the foundations of English grammar.</li>
+            <li><strong>Public Speaking:</strong> Building confidence for speeches and presentations.</li>
           </ul>
         </div>
 
         <div style={cardStyle}>
           <h2 style={subheadingStyle}>Success Stories</h2>
           <ul style={listStyle}>
-            <li><strong>🏆 Achieved fluency:</strong> 80% of participants have reached conversational fluency within 6 months.</li>
-            <li><strong>🎓 Job Readiness:</strong> 65% of our students have found better job opportunities after the course.</li>
-            <li><strong>🌍 International Recognition:</strong> Students are now able to communicate confidently on a global scale.</li>
+            <li><strong>Achieved fluency:</strong> 80% of participants have reached conversational fluency within 6 months.</li>
+            <li><strong>Job Readiness:</strong> 65% of our students have found better job opportunities after the course.</li>
+            <li><strong>International Recognition:</strong> Students are now able to communicate confidently on a global scale.</li>
           </ul>
         </div>
 
         <div style={{ ...cardStyle, background: '#fde68a', textAlign: 'center' }}>
           <p style={{ fontSize: isMobile ? '1rem' : '1.3rem', fontWeight: 600 }}>
-            Spoken English is the key to unlocking limitless opportunities in your personal and professional life! 💼
+            Spoken English is the key to unlocking limitless opportunities in your personal and professional life!
           </p>
         </div>
       </div>

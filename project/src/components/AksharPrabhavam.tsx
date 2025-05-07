@@ -124,18 +124,18 @@ const AksharPrabhavam: React.FC = () => {
         <div style={cardStyle}>
           <h2 style={subheadingStyle}>Our Focus Areas</h2>
           <ul style={listStyle}>
-            <li><strong>📘 Academic Coaching:</strong> Daily support for students aged 12–15 from rural communities.</li>
-            <li><strong>💡 Value-based Learning:</strong> Instilling discipline, kindness, and focus through mentoring.</li>
-            <li><strong>🎨 Cultural Expression:</strong> Music, dance, art, and drama integrated into weekly sessions.</li>
-            <li><strong>🧘 Well-being:</strong> Guided yoga and meditation to encourage mental clarity and peace.</li>
+            <li><strong>Academic Coaching:</strong> Daily support for students aged 12–15 from rural communities.</li>
+            <li><strong>Value-based Learning:</strong> Instilling discipline, kindness, and focus through mentoring.</li>
+            <li><strong>Cultural Expression:</strong> Music, dance, art, and drama integrated into weekly sessions.</li>
+            <li><strong>Well-being:</strong> Guided yoga and meditation to encourage mental clarity and peace.</li>
           </ul>
         </div>
 
         <div style={cardStyle}>
           <h2 style={subheadingStyle}>Special Programs</h2>
           <ul style={listStyle}>
-            <li><strong>🌟 Character Building Camps:</strong> Residential camps teaching leadership and responsibility.</li>
-            <li><strong>🤝 Community Projects:</strong> Children contribute through cleanliness drives and civic tasks.</li>
+            <li><strong>Character Building Camps:</strong> Residential camps teaching leadership and responsibility.</li>
+            <li><strong>Community Projects:</strong> Children contribute through cleanliness drives and civic tasks.</li>
           </ul>
         </div>
 

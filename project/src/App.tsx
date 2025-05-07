@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Main layout components
@@ -41,6 +40,8 @@ import FinancialReports from './components/FinancialReports';
 import Environment from '../src/components/Environment';
 import Education from './components/Education';
 import Agriculture from './components/Agriculture';
+import CSRPartnership from './components/csrpartnerships';
+import CSRForm from './components/csrform';
 /*
 // Impact subpages
 import Newsletter from './pages/impact/Newsletter';
@@ -104,6 +105,8 @@ function App() {
             <Route path="/impact/stories" element={<SuccessStories />} />
             <Route path="/get-involved/volunteer" element={<VolunteerPage />} />
             <Route path="/about/reports" element={<FinancialReports />} />
+            <Route path="/get-involved/csr" element={<CSRPartnership />} />
+            <Route path="/csr-form" element={<CSRForm />} />
 
           </Routes>
         </main>

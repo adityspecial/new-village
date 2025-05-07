@@ -119,18 +119,18 @@ const DigitalLiteracy: React.FC = () => {
         <div style={cardStyle}>
           <h2 style={subheadingStyle}>Our Focus Areas</h2>
           <ul style={listStyle}>
-            <li><strong>💻 Computer Fundamentals:</strong> Basic computer usage and internet skills.</li>
-            <li><strong>🌐 Digital Platforms:</strong> Teaching navigation and usage of social media, e-commerce, and digital tools.</li>
-            <li><strong>🔒 Online Safety:</strong> Equipping students with cyber hygiene practices for secure online activities.</li>
-            <li><strong>📱 Mobile Literacy:</strong> Instruction on mobile devices and using apps for communication and productivity.</li>
+            <li><strong>Computer Fundamentals:</strong> Basic computer usage and internet skills.</li>
+            <li><strong>Digital Platforms:</strong> Teaching navigation and usage of social media, e-commerce, and digital tools.</li>
+            <li><strong>Online Safety:</strong> Equipping students with cyber hygiene practices for secure online activities.</li>
+            <li><strong>Mobile Literacy:</strong> Instruction on mobile devices and using apps for communication and productivity.</li>
           </ul>
         </div>
 
         <div style={cardStyle}>
           <h2 style={subheadingStyle}>Special Programs</h2>
           <ul style={listStyle}>
-            <li><strong>🔧 Tech Workshops:</strong> Hands-on sessions to increase familiarity with computers and mobile devices.</li>
-            <li><strong>📅 Digital Literacy Camps:</strong> Intensive workshops for youth to learn digital tools and platforms.</li>
+            <li><strong>Tech Workshops:</strong> Hands-on sessions to increase familiarity with computers and mobile devices.</li>
+            <li><strong>Digital Literacy Camps:</strong> Intensive workshops for youth to learn digital tools and platforms.</li>
           </ul>
         </div>
 
