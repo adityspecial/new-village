@@ -2,7 +2,12 @@ import React from 'react';
 
 const DigitalLiteracy: React.FC = () => {
   const isMobile = window.innerWidth <= 768;
-
+  const galleryWrapper: React.CSSProperties = {
+    maxWidth: '100%',
+    overflow: 'hidden',
+    paddingBottom: '2rem',
+    backgroundImage: 'url("https://www.transparenttextures.com/patterns/always-grey.png")',
+  };
   const galleryStyle: React.CSSProperties = {
     display: 'flex',
     justifyContent: 'center',
@@ -24,7 +29,7 @@ const DigitalLiteracy: React.FC = () => {
   };
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLImageElement>) => {
-    if (!isMobile) e.currentTarget.style.width = '50%';
+    if (!isMobile) e.currentTarget.style.width = '40%';
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLImageElement>) => {
@@ -39,6 +44,7 @@ const DigitalLiteracy: React.FC = () => {
     color: '#3b2f2f',
     maxWidth: '1000px',
     margin: 'auto',
+    backgroundImage: 'url("https://www.transparenttextures.com/patterns/always-grey.png")',
   };
 
   const cardStyle: React.CSSProperties = {
@@ -77,15 +83,15 @@ const DigitalLiteracy: React.FC = () => {
   };
 
   return (
-    <div style={{ background: '#fffefc', minHeight: '100vh' }}>
+    <div style={galleryWrapper}>
       {/* Image Gallery */}
       <div style={{ paddingTop: '2rem' }}>
         <div style={galleryStyle}>
           {[
-            'https://images.unsplash.com/photo-1455368109333-ebc686ad6c58?q=80&w=1470&auto=format&fit=crop',
-            'https://plus.unsplash.com/premium_photo-1664528201657-378dbf6a4a91?q=80&w=1472&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1516651000622-7f32fe80a57a?q=80&w=1470&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1435348773030-a1d74f568bc2?q=80&w=1470&auto=format&fit=crop',
+            '/images/Digital-literacy/488470140_9351316421604105_2816224130122345181_n (2) (2).jpg',
+            '/images/Digital-literacy/DSC03816.JPG',
+            '/images/Digital-literacy/DSC03822.JPG',
+            ,
           ].map((src, i) => (
             <img
               key={i}

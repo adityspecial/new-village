@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 
 const Yoga = () => {
   return (
-    <div className="bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 py-12 px-6 lg:px-20 text-gray-800 font-sans space-y-20">
+    <div className="bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 py-12 px-6 lg:px-20 text-gray-800 font-sans space-y-20 ">
       {/* Heading */}
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 3 }}
         className="text-4xl font-bold text-center mb-4 text-indigo-600"
       >
         Yoga for Children
@@ -25,7 +25,7 @@ const Yoga = () => {
       {/* Section 1: Image left, text right */}
       <section className="flex flex-col lg:flex-row items-center gap-10">
         <motion.img
-          src="https://img.freepik.com/free-vector/kids-doing-yoga-concept-illustration_114360-4262.jpg"
+          src="/images/Yoga/DSC06014.JPG"
           alt="Kids Yoga"
           className="w-full lg:w-1/2 rounded-2xl shadow-xl"
           initial={{ opacity: 0, x: -60 }}
@@ -55,7 +55,7 @@ const Yoga = () => {
           className="lg:w-1/2"
           initial={{ opacity: 0, x: -60 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 2 }}
         >
           <h3 className="text-2xl font-semibold mb-4 text-indigo-600">How We Do It</h3>
           <ul className="list-disc pl-6 space-y-2 text-gray-700">
@@ -66,7 +66,7 @@ const Yoga = () => {
           </ul>
         </motion.div>
         <motion.img
-          src="https://img.freepik.com/free-vector/international-yoga-day-celebration-cartoon_1308-125884.jpg"
+          src="/images/Yoga/DSC06015.JPG"
           alt="Yoga Day"
           className="w-full lg:w-1/2 rounded-2xl shadow-xl"
           initial={{ opacity: 0, x: 60 }}

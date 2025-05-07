@@ -37,6 +37,8 @@ import SuccessStories from './components/SuccessStories';
 
 // Work -> Environment
 import Environment from '../src/components/Environment';
+import Education from './components/Education';
+import Agriculture from './components/Agriculture';
 /*
 // Impact subpages
 import Newsletter from './pages/impact/Newsletter';
@@ -81,12 +83,14 @@ function App() {
             <Route path="/get-involved/careers" element={<Careers />} />
   */}
   
- 
+    {/* Work - Education */}
+    <Route path="/work/education" element={<Education/>} />
+    <Route path="/work/agriculture" element={<Agriculture />} />
             {/* Work - Education */}
             <Route path="/work/education/akshar-prabhavam" element={<AksharPrabhavam />} />
             <Route path="/work/education/digital-literacy" element={<DigitalLiteracy />} />
             <Route path="/work/education/spoken-english" element={<SpokenEnglish />} />
-            <Route path="/work/livelihood/jeevandhara" element={<RuralEmpowerment />} />
+            <Route path="/work/livelihood" element={<RuralEmpowerment />} />
             {/* Work - Agriculture */}
             <Route path="/work/agriculture/farmer-training" element={<FarmerTraining />} />
               {/*<Route path="/work/agriculture/soil-health" element={<SoilHealth />} />*/}

@@ -2,7 +2,12 @@ import React from 'react';
 
 const AksharPrabhavam: React.FC = () => {
   const isMobile = window.innerWidth <= 768;
-
+  const galleryWrapper: React.CSSProperties = {
+    maxWidth: '100%',
+    overflow: 'hidden',
+    paddingBottom: '2rem',
+    backgroundImage: 'url("https://www.transparenttextures.com/patterns/always-grey.png")',
+  };
   const galleryStyle: React.CSSProperties = {
     display: 'flex',
     justifyContent: 'center',
@@ -21,10 +26,11 @@ const AksharPrabhavam: React.FC = () => {
     border: '2px solid white',
     transition: 'all 0.5s ease-out',
     cursor: 'pointer',
+    flexShrink: 0,
   };
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLImageElement>) => {
-    if (!isMobile) e.currentTarget.style.width = '50%';
+    if (!isMobile) e.currentTarget.style.width = '30%';
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLImageElement>) => {
@@ -39,6 +45,7 @@ const AksharPrabhavam: React.FC = () => {
     color: '#3b2f2f',
     maxWidth: '1000px',
     margin: 'auto',
+    backgroundImage: 'url("https://www.transparenttextures.com/patterns/always-grey.png")',
   };
 
   const cardStyle: React.CSSProperties = {
@@ -77,17 +84,18 @@ const AksharPrabhavam: React.FC = () => {
   };
 
   return (
-    <div style={{ background: '#fffefc', minHeight: '100vh' }}>
+    <div style={galleryWrapper}>
       {/* Image Gallery */}
       <div style={{ paddingTop: '2rem' }}>
         <div style={galleryStyle}>
           {[
-            'https://images.unsplash.com/photo-1455368109333-ebc686ad6c58?q=80&w=1470&auto=format&fit=crop',
-            'https://plus.unsplash.com/premium_photo-1664528201657-378dbf6a4a91?q=80&w=1472&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1516651000622-7f32fe80a57a?q=80&w=1470&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1435348773030-a1d74f568bc2?q=80&w=1470&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1455368109333-ebc686ad6c58?q=80&w=1470&auto=format&fit=crop',
-            'https://plus.unsplash.com/premium_photo-1664528201657-378dbf6a4a91?q=80&w=1472&auto=format&fit=crop',
+            '/images/AksharPrabhavam/333274487_3395379504037140_4165174511626756588_n-Picsart-AiImageEnhancer.jpg',
+            '/images/AksharPrabhavam/341776319_581666140593613_3373517925591163461_n-Picsart-AiImageEnhancer.jpg',
+            '/images/AksharPrabhavam/342052825_906915237223666_2764767502946802631_n-Picsart-AiImageEnhancer.jpg',
+            '/images/AksharPrabhavam/367393636_6392854400783670_5338425478221542664_n-Picsart-AiImageEnhancer.jpg',
+            '/images/AksharPrabhavam/387185202_6598688340200274_6226190033616506687_n-Picsart-AiImageEnhancer.jpg',
+            '/images/AksharPrabhavam/342052825_906915237223666_2764767502946802631_n-Picsart-AiImageEnhancer.jpg',
+            '/images/AksharPrabhavam/387165247_6598687183533723_8856090737025899650_n-Picsart-AiImageEnhancer.jpg'
         
           ].map((src, i) => (
             <img

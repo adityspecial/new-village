@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, Children } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Menu, X, Landmark, PackageSearch, TrendingUp, Files, Handshake, IndianRupee
@@ -70,12 +70,17 @@ const toggleMobileMenu = (name: string) => {
           name: 'Agriculture',
           path: '/work/agriculture',
           children: [
-            { name: 'Farmer Tranning', path: '/work/agriculture/farmer-trannig' },
+            { name: 'Farmer Tranning', path: '/work/agriculture/farmer-training' },
             { name: 'Soil Health', path: '/work/agriculture/soil' }
           ]
         },
         { name: 'Environment', path: '/work/environment' },
-        { name: 'Health', path: '/work/health' },
+        { name: 'Health', path: '/work/health',
+          children:[
+            { name: 'Hygiene Campaign', path: '/work/health/hygiene-campaign' },
+            { name: 'Yoga', path: '/work/health/yoga' }
+          ]
+         },
         { name: 'Livelihood', path: '/work/livelihood' },
         { name: 'Gram Siri', path: '/work/gram-siri' },
         { name: 'KIF Chapters', path: '/work/chapters' },

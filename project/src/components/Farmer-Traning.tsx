@@ -6,7 +6,7 @@ const FarmerTraining: React.FC = () => {
       title: "Empowering Farmers",
       subtitle: "Why Farmer Training?",
       text: "Equipping farmers with knowledge, confidence, and sustainable techniques to improve yield and income.",
-      image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+      image: "/images/Farmer-Training/IMG20240602161413 (1).jpg"
     },
     {
       title: "Sustainable Practices",
@@ -40,11 +40,12 @@ const FarmerTraining: React.FC = () => {
   };
 
   return (
-    <div style={{ fontFamily: "'Segoe UI', sans-serif", color: "#333" }}>
+    <div style={{ fontFamily: "'Segoe UI', sans-serif", color: "#333" ,backgroundImage: 'url("https://www.transparenttextures.com/patterns/black-thread.png")'
+    }}>
       {/* Slider Section */}
       <section style={{
         position: 'relative',
-        height: '500px',
+        height: '600px',
         overflow: 'hidden'
       }}>
         <img
@@ -63,7 +64,8 @@ const FarmerTraining: React.FC = () => {
           width: '100%',
           padding: '30px',
           backgroundColor: 'rgba(0, 0, 0, 0.6)',
-          color: 'white'
+          color: 'white',
+
         }}>
           <h2 style={{ fontSize: '1.8rem', margin: 0 }}>{slides[currentSlide].title}</h2>
           <h3 style={{ fontSize: '1.2rem', margin: '10px 0' }}>{slides[currentSlide].subtitle}</h3>
@@ -102,9 +104,11 @@ const FarmerTraining: React.FC = () => {
         padding: '20px',
         background: '#f9f9f9',
         borderRadius: '8px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+        
+     
       }}>
-        <div style={{ marginBottom: '30px' }}>
+        <div style={{ marginBottom: '30px', }}>
           <h2 style={{ color: '#ff9f43', fontSize: '1.5rem', marginBottom: '10px' }}>Why Farmers’ Training?</h2>
           <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>
             At Karnataka Incubation Foundation (KIF), we believe that empowered farmers can change the future of rural India. Our training programs are designed to equip farmers with:

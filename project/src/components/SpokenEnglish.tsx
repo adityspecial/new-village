@@ -3,6 +3,13 @@ import React from 'react';
 const SpokenEnglish: React.FC = () => {
   const isMobile = window.innerWidth <= 768;
 
+   const galleryWrapper: React.CSSProperties = {
+      maxWidth: '100%',
+      overflow: 'hidden',
+      paddingBottom: '2rem',
+      backgroundImage: 'url("https://www.transparenttextures.com/patterns/always-grey.png")',
+    };
+
   const galleryStyle: React.CSSProperties = {
     display: 'flex',
     justifyContent: 'center',
@@ -39,6 +46,7 @@ const SpokenEnglish: React.FC = () => {
     color: '#3b2f2f',
     maxWidth: '1000px',
     margin: 'auto',
+    backgroundImage: 'url("https://www.transparenttextures.com/patterns/always-grey.png")',
   };
 
   const cardStyle: React.CSSProperties = {
@@ -77,15 +85,12 @@ const SpokenEnglish: React.FC = () => {
   };
 
   return (
-    <div style={{ background: '#fffefc', minHeight: '100vh' }}>
+    <div style={galleryWrapper}>
       {/* Image Gallery */}
       <div style={{ paddingTop: '2rem' }}>
         <div style={galleryStyle}>
           {[
-            'https://images.unsplash.com/photo-1455368109333-ebc686ad6c58?q=80&w=1470&auto=format&fit=crop',
-            'https://plus.unsplash.com/premium_photo-1664528201657-378dbf6a4a91?q=80&w=1472&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1516651000622-7f32fe80a57a?q=80&w=1470&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1435348773030-a1d74f568bc2?q=80&w=1470&auto=format&fit=crop',
+            '/images/Spoken-English/WhatsApp Image 2025-04-20 at 21,16,41_55c34e9b-Picsart-AiImageEnhancer.jpg',
           ].map((src, i) => (
             <img
               key={i}

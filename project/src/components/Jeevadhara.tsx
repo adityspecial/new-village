@@ -61,7 +61,7 @@ const RuralEmpowerment = () => {
           </ul>
         </motion.div>
         <motion.img
-          src="https://img.freepik.com/free-vector/rural-development-concept-illustration_114360-10673.jpg"
+          src="/images/Livlihood/WhatsApp Image 2025-04-22 at 16,16,55_b1c4a283-Picsart-AiImageEnhancer.jpg"
           alt="Rural Training"
           className="w-full lg:w-1/2 rounded-2xl shadow-xl"
           initial={{ opacity: 0, x: 60 }}
