@@ -3,15 +3,15 @@ const publications = [
       title: 'PHC Survey Form',
       category: 'Village Development',
       author: 'Ashwin Bhusare',
-      image: 'https://kifdwd.org/wp-content/uploads/2024/07/Village-Survey-Form-2.jpg',
-      downloadLink: 'https://kifdwd.org/wp-content/uploads/2024/03/PHC-Survey-Form.pdf'
+      image: '/public/images/Publications/PHC.png',
+      downloadLink: '/public/publicationDocs/PHC-Survey-Form.pdf'
     },
     {
       title: 'Village Survey Form',
       category: 'Village Development',
       author: 'Ashwin Bhusare',
-      image: 'https://kifdwd.org/wp-content/uploads/2024/07/Village-Survey-Form.jpg',
-      downloadLink: 'https://kifdwd.org/wp-content/uploads/2024/03/Village-Survey-Form.pdf'
+      image: '/public/images/Publications/VSF.png',
+      downloadLink: '/public/publicationDocs/Village-Survey-Form.pdf'
     }
   ];
   

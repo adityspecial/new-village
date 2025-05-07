@@ -33,39 +33,10 @@ const teamMembers = [
 
 const TeamPage: React.FC = () => {
   return (
-    <div style={{ background: '#485b6e', minHeight: '100vh', padding: '50px 0' }}>
-      <h1
-        style={{
-          textAlign: 'center',
-          color: 'rgba(255,255,255,0.6)',
-          fontFamily: '"Open Sans", sans-serif',
-          fontWeight: 300,
-        }}
-      >
-        Our Team
-      </h1>
-      <h2
-        style={{
-          color: '#2c3e52',
-          fontFamily: '"Open Sans", sans-serif',
-          fontSize: '14px',
-          textAlign: 'center',
-          fontWeight: 700,
-          marginBottom: '50px',
-        }}
-      >
-        Meet the Core Committee
-      </h2>
+    <div className="pattern-bg-yellow min-h-screen py-12 bg-amber-200">
+      <h1 className="text-center text-black font-bold text-3xl mb-12">Our Team</h1>
 
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '30px',
-          justifyContent: 'center',
-          padding: '0 20px',
-        }}
-      >
+      <div className="flex flex-wrap gap-8 justify-center px-5">
         {teamMembers.map((member, idx) => (
           <ProfileCard key={idx} {...member} />
         ))}
@@ -75,3 +46,4 @@ const TeamPage: React.FC = () => {
 };
 
 export default TeamPage;
+

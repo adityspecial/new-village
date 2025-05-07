@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const ModelVillage: React.FC = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
+  const lightboxRef = useRef<HTMLDivElement | null>(null);
 
   const images = [
-    { thumb: 'https://unsplash.it/600.jpg?image=251', full: 'https://unsplash.it/1200/768.jpg?image=251' },
-    { thumb: 'https://unsplash.it/600.jpg?image=252', full: 'https://unsplash.it/1200/768.jpg?image=252' },
-    { thumb: 'https://unsplash.it/600.jpg?image=253', full: 'https://unsplash.it/1200/768.jpg?image=253' },
-    { thumb: 'https://unsplash.it/600.jpg?image=254', full: 'https://unsplash.it/1200/768.jpg?image=254' },
-    { thumb: 'https://unsplash.it/600.jpg?image=255', full: 'https://unsplash.it/1200/768.jpg?image=255' },
-    { thumb: 'https://unsplash.it/600.jpg?image=256', full: 'https://unsplash.it/1200/768.jpg?image=256' },
+    { thumb: '/images/ModelVillage/MV1.jpg', full: '/images/ModelVillage/MV1.jpg'},
+    { thumb: '/images/ModelVillage/MV2.jpg', full: '/images/ModelVillage/MV2.jpg'},
+    { thumb: '/images/ModelVillage/MV3.jpg', full: '/images/ModelVillage/MV3.jpg' },
+    { thumb: '/images/ModelVillage/MV4.jpg', full: '/images/ModelVillage/MV4.jpg' },
+    { thumb: '/images/ModelVillage/MV5.jpg', full: '/images/ModelVillage/MV5.jpg' },
   ];
 
   const processSteps = [
@@ -40,8 +40,27 @@ const ModelVillage: React.FC = () => {
     }
   ];
 
+  // Close lightbox when clicking outside the image
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (lightboxRef.current && !lightboxRef.current.contains(event.target as Node)) {
+        setIsLightboxOpen(false);
+      }
+    };
+
+    if (isLightboxOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isLightboxOpen]);
+
   return (
-    <div className="min-h-screen bg-amber-50 py-16">
+    <div className="min-h-screen bg-amber-200 pattern-bg-yellow py-16">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold text-amber-900 text-center mb-12">Model Village</h1>
 
@@ -71,29 +90,21 @@ const ModelVillage: React.FC = () => {
             <div className="absolute left-1/2 -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-amber-300 to-amber-600" />
             {processSteps.map((step, index) => (
               <div key={index} className="relative flex justify-center mb-24 last:mb-0">
-                <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2
-                            w-16 h-16 rounded-full bg-amber-600 flex items-center justify-center
-                            text-white text-2xl font-bold shadow-lg z-10">
+                <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-amber-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg z-10">
                   {index + 1}
                 </div>
 
-                <div className={`w-full md:w-1/2 p-6 transform transition-all duration-300 
-                               hover:scale-105 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                  <div className={`bg-white rounded-2xl shadow-xl p-8 relative 
-                                 ${index % 2 === 0 ? 'md:float-right' : 'md:float-left'}`}>
-                    <div className={`absolute top-8 ${index % 2 === 0 ? '-left-12' : '-right-12'} 
-                                  w-24 h-24 opacity-20 bg-amber-300 rounded-full blur-lg`} />
+                <div className={`w-full md:w-1/2 p-6 transform transition-all duration-300 hover:scale-105 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                  <div className={`bg-white rounded-2xl shadow-xl p-8 relative ${index % 2 === 0 ? 'md:float-right' : 'md:float-left'}`}>
+                    <div className={`absolute top-8 ${index % 2 === 0 ? '-left-12' : '-right-12'} w-24 h-24 opacity-20 bg-amber-300 rounded-full blur-lg`} />
                     <div className="relative">
                       <h3 className="text-2xl font-bold text-amber-800 mb-3">{step.title}</h3>
                       <p className="text-gray-700 leading-relaxed">{step.description}</p>
                     </div>
 
                     {index < processSteps.length - 1 && (
-                      <div className={`hidden md:block absolute ${index % 2 === 0 ? '-right-20' : '-left-20'} 
-                                    top-1/2 w-16 h-1 bg-amber-300`}>
-                        <div className={`absolute top-0 ${index % 2 === 0 ? 'right-0' : 'left-0'} 
-                                      w-4 h-4 border-4 border-amber-600 transform rotate-45 
-                                      ${index % 2 === 0 ? '-translate-y-1.5 -translate-x-2' : '-translate-y-1.5 translate-x-2'}`} />
+                      <div className={`hidden md:block absolute ${index % 2 === 0 ? '-right-20' : '-left-20'} top-1/2 w-16 h-1 bg-amber-400`}>
+                        <div className={`absolute top-0 ${index % 2 === 0 ? 'right-0' : 'left-0'} w-4 h-4 border-4 border-amber-600 transform rotate-45 ${index % 2 === 0 ? '-translate-y-1.5 -translate-x-2' : '-translate-y-1.5 translate-x-2'}`} />
                       </div>
                     )}
                   </div>
@@ -102,10 +113,11 @@ const ModelVillage: React.FC = () => {
             ))}
           </div>
         </div>
-
+      </div>
         {/* Image Gallery */}
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <h2 className="text-3xl font-bold text-amber-800 text-center mb-12">Gallery</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid  md:grid-cols-5 gap-10 w-full h-full">
           {images.map((img, index) => (
             <div
               key={index}
@@ -118,7 +130,7 @@ const ModelVillage: React.FC = () => {
               <img
                 src={img.thumb}
                 alt={`Model Village ${index + 1}`}
-                className="w-full h-64 object-cover rounded-lg shadow-md"
+                className="w-60 h-60 object-cover rounded-full shadow-md "
               />
             </div>
           ))}
@@ -126,38 +138,34 @@ const ModelVillage: React.FC = () => {
 
         {/* Custom Lightbox */}
         {isLightboxOpen && (
-          <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-lg flex items-center justify-center">
-            <div className="relative max-w-4xl w-full mx-4">
-              {/* Close Button */}
+          <div className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-85 backdrop-blur-sm">
+            <div ref={lightboxRef} className="relative max-w-4xl w-full mx-4">
               <button
-                className="absolute -top-12 right-0 text-white text-4xl hover:text-amber-400 transition-colors"
+                className="absolute -top-16 right-0 text-white text-6xl hover:text-amber-400 transition-colors"
                 onClick={() => setIsLightboxOpen(false)}
               >
                 ×
               </button>
 
-              {/* Main Image */}
               <img
                 src={images[photoIndex].full}
                 alt={`Enlarged View ${photoIndex + 1}`}
                 className="max-h-[90vh] w-auto mx-auto rounded-lg shadow-2xl"
               />
 
-              {/* Navigation */}
               <button
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full text-white text-4xl hover:text-amber-400 transition-colors"
+                className="absolute left-0  top-1/2 -translate-y-1/2 -translate-x-full text-white text-9xl hover:text-amber-400 transition-colors"
                 onClick={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
               >
                 ‹
               </button>
               <button
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full text-white text-4xl hover:text-amber-400 transition-colors"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full text-white text-9xl hover:text-amber-400 transition-colors"
                 onClick={() => setPhotoIndex((photoIndex + 1) % images.length)}
               >
                 ›
               </button>
 
-              {/* Counter */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg bg-black/30 px-4 py-2 rounded-full">
                 {photoIndex + 1} / {images.length}
               </div>
