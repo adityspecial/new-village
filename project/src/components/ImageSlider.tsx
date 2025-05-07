@@ -8,8 +8,8 @@ import 'swiper/css/pagination';
 const slides = [
   {
     image: '/images/Navbar/Slider1.jpg',
-    title: 'Traditional Farming',
-    description: 'Supporting sustainable agricultural practices'
+    title: 'Spiritual Learning',
+    description: 'Harnessing the power of spirituality for community development'
   },
   {
     image: '/images/Navbar/Slider6.jpg',
@@ -18,8 +18,8 @@ const slides = [
   },
   {
     image: '/images/Navbar/Slider3.jpg',
-    title: 'Craft Heritage',
-    description: 'Preserving traditional craftsmanship'
+    title: 'Community Building',
+    description: 'Preserving traditions and culture'
   },
   {
     image: '/images/Navbar/Slider9.jpg',
