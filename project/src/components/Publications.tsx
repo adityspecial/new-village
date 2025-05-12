@@ -3,18 +3,18 @@ const publications = [
       title: 'PHC Survey Form',
       category: 'Village Development',
       author: 'Ashwin Bhusare',
-      image: '/public/images/Publications/PHC.png',
-      downloadLink: '/public/publicationDocs/PHC-Survey-Form.pdf'
+      image: '/images/Publications/PHC.png',
+      downloadLink: '/publicationDocs/PHC-Survey-Form.pdf'
     },
     {
       title: 'Village Survey Form',
       category: 'Village Development',
       author: 'Ashwin Bhusare',
-      image: '/public/images/Publications/VSF.png',
-      downloadLink: '/public/publicationDocs/Village-Survey-Form.pdf'
+      image: '/images/Publications/VSF.png',
+      downloadLink: '/publicationDocs/Village-Survey-Form.pdf'
     }
   ];
-  
+   
   const Publications = () => {
     return (
       <div className="pattern-bg-yellow w-full">

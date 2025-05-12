@@ -24,7 +24,7 @@ const SuccessStories: React.FC = () => {
                   <p className="mt-4">– <strong>Shridhar Madival</strong>, 9th Std</p>
                 </div>
               }
-              imageSrc="/public/Images/SuccessStories/1.png"
+              imageSrc="/images/SuccessStories/1.png"
               borderSize="2"
             />
             <Card
@@ -38,7 +38,7 @@ const SuccessStories: React.FC = () => {
                   <p className="mt-4">– <strong>Parvati Demannavar</strong>, 7th Std</p>
                 </div>
               }
-              imageSrc="/public/Images/SuccessStories/2 (1).jpeg"
+              imageSrc="/images/SuccessStories/2 (1).jpeg"
               borderSize="2"
             />
             <Card
@@ -52,7 +52,7 @@ const SuccessStories: React.FC = () => {
                   <p className="mt-4">– <strong>Kiran Sannapoojar</strong></p>
                 </div>
               }
-              imageSrc="/public/Images/SuccessStories/3.png"
+              imageSrc="/images/SuccessStories/3.png"
               borderSize="2"
             />
             <Card
@@ -63,7 +63,7 @@ const SuccessStories: React.FC = () => {
                   <p className="mt-4">– <strong>Vinayak Menasinkai</strong></p>
                 </div>
               }
-              imageSrc="/public/Images/SuccessStories/4 (1).jpeg"
+              imageSrc="/images/SuccessStories/4 (1).jpeg"
               borderSize="2"
             />
             <Card
@@ -74,7 +74,7 @@ const SuccessStories: React.FC = () => {
                   <p className="mt-4">– <strong>Aishwarya Ganiger</strong>, 10th Std</p>
                 </div>
               }
-              imageSrc="/public/Images/SuccessStories/5.jpg"
+              imageSrc="/images/SuccessStories/5.jpg"
               borderSize="2"
             />
             <Card
@@ -85,7 +85,7 @@ const SuccessStories: React.FC = () => {
                   <p className="mt-4">– <strong>Chandru Kalagoudar</strong>, 6th Std</p>
                 </div>
               }
-            imageSrc="/public/Images/SuccessStories/6.png"
+            imageSrc="/images/SuccessStories/6.png"
               borderSize="2"
             />
             <Card
@@ -96,7 +96,7 @@ const SuccessStories: React.FC = () => {
                   <p className="mt-4">– <strong>Varshini Hittalmani</strong>, 7th Std</p>
                 </div>
               }
-              imageSrc="/public/Images/SuccessStories/7 (1).jpeg"
+              imageSrc="/images/SuccessStories/7 (1).jpeg"
               borderSize="2"
             />
             <Card
@@ -107,7 +107,7 @@ const SuccessStories: React.FC = () => {
                   <p className="mt-4">– <strong>Sumayya P Nadaf</strong>, 8th Std</p>
                 </div>
               }
-              imageSrc="/public/Images/SuccessStories/8.jpg"
+              imageSrc="/images/SuccessStories/8.jpg"
               borderSize="2"
             />
           </Carousel>
@@ -129,7 +129,7 @@ const SuccessStories: React.FC = () => {
                   </strong></p>
                 </div>
               }
-              imageSrc="/public/Images/SuccessStories/1.jpg"
+              imageSrc="/images/SuccessStories/1.jpg"
               borderSize="2"
             />
             <Card
@@ -141,7 +141,7 @@ const SuccessStories: React.FC = () => {
                   </strong></p>
                 </div>
               }
-              imageSrc="/public/Images/SuccessStories/2.jpg"
+              imageSrc="/images/SuccessStories/2.jpg"
               borderSize="2"
             />
             <Card
@@ -155,7 +155,7 @@ This wasn’t just a financial success. It was a lesson in teamwork, community s
                   </strong></p>
                 </div>
               }
-              imageSrc="/public/Images/SuccessStories/3.jpg"
+              imageSrc="/images/SuccessStories/3.jpg"
               borderSize="2"
             />
             <Card
@@ -168,7 +168,7 @@ This wasn’t just a financial success. It was a lesson in teamwork, community s
                   </strong></p>
                 </div>
               }
-              imageSrc="/public/Images/SuccessStories/4.jpg"
+              imageSrc="/images/SuccessStories/4.jpg"
               borderSize="2"
             />
           </Carousel>

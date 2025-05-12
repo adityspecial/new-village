@@ -71,7 +71,7 @@ const Donate = () => {
       description: "Support a child's education for one year.",
       amount: 3500,
       frequency: 'Yearly',
-      planId: 'plan_QRFg3gD3VuxDO8'  // Razorpay plan ID for yearly subscription
+      planId: 'sub_QS2lYatwqzhbQ5'  // Razorpay plan ID for yearly subscription
     }
   ];
 
