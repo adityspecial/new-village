@@ -54,7 +54,7 @@ const CSRPartnership = () => {
           </ul>
         </motion.div>
         <motion.img
-          src="https://img.freepik.com/free-vector/business-partnership-flat-illustration_23-2148890129.jpg"
+          src="/images/CSR/1.jpg"
           alt="Why Partner"
           className="lg:w-1/2 w-full rounded-xl shadow-md"
           initial={{ opacity: 0, x: 40 }}
@@ -66,7 +66,7 @@ const CSRPartnership = () => {
       {/* Section 3: How to Partner */}
       <section className="flex flex-col-reverse lg:flex-row items-start gap-10">
         <motion.img
-          src="https://img.freepik.com/free-vector/business-handshake-partners_74855-6685.jpg"
+          src="/images/CSR/2.jpg"
           alt="How to Partner"
           className="lg:w-1/2 w-full rounded-xl shadow-md"
           initial={{ opacity: 0, x: -40 }}

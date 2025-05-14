@@ -13,6 +13,7 @@ import Resources from './pages/Resources';
 import GetInvolved from './pages/GetInvolved';
 import Donate from './pages/Donate';
 import GalleryPage from './components/galleryPage';
+import ShareExperiences from './components/Experiences';
 
 // About subpages
 
@@ -109,6 +110,7 @@ function App() {
             <Route path="/get-involved/csr" element={<CSRPartnership />} />
             <Route path="/csr-form" element={<CSRForm />} />
             <Route path="/impact/gallery" element={<GalleryPage />} />
+            <Route path="/impact/share" element={<ShareExperiences />} />
 
           </Routes>
         </main>
