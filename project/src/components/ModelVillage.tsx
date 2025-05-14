@@ -116,7 +116,7 @@ const ModelVillage: React.FC = () => {
       </div>
         {/* Image Gallery */}
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <h2 className="text-3xl font-bold text-amber-800 text-center mb-12">Gallery</h2>
+        <h2 className="text-3xl font-bold text-amber-800 text-center mb-12">The Village of Tomorrow</h2>
         <div className="grid  md:grid-cols-5 gap-10 w-full h-full">
           {images.map((img, index) => (
             <div

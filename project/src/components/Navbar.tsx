@@ -143,7 +143,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
             <img src="/images/Navbar/logo.jpg" alt="Logo" className="h-8 w-8 object-cover" />
-            <span className="text-l text-white font-heading">Karnataka Incubation Foundation</span>
+            <span className="text-sm text-white font-heading max-sm:text-[12px]">Karnataka Incubation Foundation</span>
           </Link>
 
           {/* Desktop Menu */}
