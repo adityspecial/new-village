@@ -83,15 +83,15 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4 text-amber-200" />
-                <span className="text-amber-200">KIF Office Address</span>
+                <span className="text-amber-200">#371, Hebballi Road, Maradagi Village - 580112</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-amber-200" />
-                <span className="text-amber-200">Contact Number</span>
+                <span className="text-amber-200">+91 99021 29083</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-amber-200" />
-                <span className="text-amber-200">contact@kif.org</span>
+                <span className="text-amber-200">namaste@kifdwd.org</span>
               </li>
             </ul>
           </div>

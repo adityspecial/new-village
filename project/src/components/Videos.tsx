@@ -1,6 +1,6 @@
 const Videos = () => {
     return (
-      <div className="pattern-bg-yellow w-full">
+      <div className="pattern-bg-yellow w-full bg-amber-100">
     <div className="p-8 max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-amber-900 mb-8 text-center">Our Videos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

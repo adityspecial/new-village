@@ -27,7 +27,7 @@ const Reports = () => {
   const totalPages = Math.ceil(filteredReports.length / reportsPerPage);
 
   return (
-    <div className="pt-20 pb-16 bg-amber-200 pattern-bg-yellow w-full min-h-screen">
+    <div className="pt-20 pb-16 bg-amber-50 pattern-bg-yellow w-full min-h-screen">
       <div className="max-w-6xl mx-auto w-full px-4">
         <h1 className="text-4xl font-semibold mb-6 text-center">Financial Reports</h1>
 

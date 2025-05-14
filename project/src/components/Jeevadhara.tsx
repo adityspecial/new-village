@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const RuralEmpowerment = () => {
   return (
-    <div className="bg-gradient-to-br from-green-100 via-teal-100 to-cyan-100 py-12 px-6 lg:px-20 text-gray-800 font-sans space-y-20">
+    <div className="bg-gradient-to-br from-green-100 via-teal-100 to-cyan-100 py-12 px-6 lg:px-20 text-gray-800 font-sans space-y-20 ">
       {/* Heading */}
       <motion.h1
         initial={{ opacity: 0, y: -30 }}

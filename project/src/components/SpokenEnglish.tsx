@@ -7,7 +7,7 @@ const SpokenEnglish: React.FC = () => {
       maxWidth: '100%',
       overflow: 'hidden',
       paddingBottom: '2rem',
-      backgroundImage: 'url("https://www.transparenttextures.com/patterns/always-grey.png")',
+      backgroundImage: "url('/images/low-contrast-linen.png')",
     };
 
   const galleryStyle: React.CSSProperties = {
@@ -45,8 +45,7 @@ const SpokenEnglish: React.FC = () => {
     lineHeight: '1.7',
     color: '#3b2f2f',
     maxWidth: '1000px',
-    margin: 'auto',
-    backgroundImage: 'url("https://www.transparenttextures.com/patterns/always-grey.png")',
+    margin: '1rem auto',
   };
 
   const cardStyle: React.CSSProperties = {
@@ -126,12 +125,13 @@ const SpokenEnglish: React.FC = () => {
         </div>
 
         <div style={cardStyle}>
-          <h2 style={subheadingStyle}>Success Stories</h2>
+          <h2 style={subheadingStyle}>Outcomes</h2>
           <ul style={listStyle}>
-            <li><strong>Achieved fluency:</strong> 80% of participants have reached conversational fluency within 6 months.</li>
-            <li><strong>Job Readiness:</strong> 65% of our students have found better job opportunities after the course.</li>
-            <li><strong>International Recognition:</strong> Students are now able to communicate confidently on a global scale.</li>
-          </ul>
+            <li><strong>Better Communication:</strong> Children are being taught English to connect with the world more easily.</li>
+            <li><strong>Confidence Boost:</strong> Language learning is helping them gain self-assurance.</li>
+            <li><strong>Bridging Gaps:</strong> Aims to ensure they don't miss opportunities due to lack of language skills.</li>
+            <li><strong>Sunday Sessions:</strong> NRIs and IT sector volunteers conduct online English classes every Sunday.</li>
+        </ul>
         </div>
 
         <div style={{ ...cardStyle, background: '#fde68a', textAlign: 'center' }}>

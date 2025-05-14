@@ -40,7 +40,7 @@ const FarmerTraining: React.FC = () => {
   };
 
   return (
-    <div style={{ fontFamily: "'Segoe UI', sans-serif", color: "#333" ,backgroundImage: 'url("https://www.transparenttextures.com/patterns/black-thread.png")'
+    <div style={{ fontFamily: "'Segoe UI', sans-serif", color: "#333" ,backgroundImage: 'url("/images/low-contrast-linen.png")',backgroundColor: '#DBF2DE'
     }}>
       {/* Slider Section */}
       <section style={{
@@ -109,7 +109,7 @@ const FarmerTraining: React.FC = () => {
      
       }}>
         <div style={{ marginBottom: '30px', }}>
-          <h2 style={{ color: '#ff9f43', fontSize: '1.5rem', marginBottom: '10px' }}>Why Farmers’ Training?</h2>
+          <h2 style={{ color: '#276749', fontSize: '1.5rem', marginBottom: '10px' }}>Why Farmers’ Training?</h2>
           <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>
             At Karnataka Incubation Foundation (KIF), we believe that empowered farmers can change the future of rural India. Our training programs are designed to equip farmers with:
           </p>
@@ -122,7 +122,7 @@ const FarmerTraining: React.FC = () => {
         </div>
 
         <div>
-          <h2 style={{ color: '#ff9f43', fontSize: '1.5rem', marginBottom: '10px' }}>What We Offer</h2>
+          <h2 style={{ color: '#276749', fontSize: '1.5rem', marginBottom: '10px' }}>What We Offer</h2>
           <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>
             We conduct one-day training programs in villages and talukas to equip farmers and rural youth with practical skills in:
           </p>
@@ -138,12 +138,13 @@ const FarmerTraining: React.FC = () => {
       <div style={{
         textAlign: 'center',
         padding: '40px 20px',
-        background: '#f8f9fa'
+        background: '#DBF2DE',
+        backgroundImage: 'url("/images/low-contrast-linen.png")'
       }}>
         <a href="/register" style={{
           display: 'inline-block',
           padding: '15px 30px',
-          background: '#ff9f43',
+          background: '#276749',
           color: 'white',
           textDecoration: 'none',
           borderRadius: '30px',

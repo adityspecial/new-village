@@ -22,7 +22,7 @@ const VolunteerPage: React.FC = () => {
         </button>
       </section>
 
-      <section className="bg-amber-100 py-16 px-4 pattern-bg-yellow">
+      <section className="bg-amber-200 py-16 px-4 pattern-bg-yellow">
       <h2 className="text-3xl font-bold text-gray-900 mb-10">Why Volunteer With KIF?</h2>
           <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-2 lg:grid-cols-3">
           {[
@@ -43,7 +43,7 @@ const VolunteerPage: React.FC = () => {
       <section className="h-16 bg-gradient-to-r from-amber-600 to-amber-900" />
 
 
-      <section className="bg-amber-100 py-16 px-4 pattern-bg-yellow">
+      <section className="bg-amber-200 py-16 px-4 pattern-bg-yellow">
   <div className="max-w-6xl mx-auto text-center">
     <h2 className="text-3xl font-bold text-gray-900 mb-10">Volunteer Roles</h2>
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -94,7 +94,7 @@ const VolunteerPage: React.FC = () => {
 
 <section className="h-16 bg-gradient-to-r from-amber-600 to-amber-900" />
 
-      <section className="py-16 px-4 bg-amber-100 pattern-bg-yellow">
+      <section className="py-16 px-4 bg-amber-200 pattern-bg-yellow">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Volunteer Experiences</h2>
           <TestimonialCarousel testimonials={testimonials} />

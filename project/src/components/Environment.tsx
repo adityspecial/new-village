@@ -11,7 +11,7 @@ const Environment: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-green-50 text-gray-800 px-4 sm:px-6 py-12  ">
+    <div className="min-h-screen bg-green-50 text-gray-800 px-4 sm:px-6 py-12 pattern-bg-yellow">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold mb-4 text-green-800 text-center">
           Greening Villages, Growing Futures
@@ -78,7 +78,7 @@ const Environment: React.FC = () => {
           </ul>
         </section>
 
-        <div className="border-l-4 border-green-500 pl-4 italic text-green-700 text-lg text-center">
+        <div className=" border-green-500 pl-4 italic text-green-700 text-lg text-center">
           “Every small tree planted today becomes a forest tomorrow.”
         </div>
       </div>

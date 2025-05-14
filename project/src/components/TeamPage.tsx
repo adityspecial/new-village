@@ -33,7 +33,7 @@ const teamMembers = [
 
 const TeamPage: React.FC = () => {
   return (
-    <div className="pattern-bg-yellow min-h-screen py-12 bg-amber-200">
+    <div className="pattern-bg-yellow min-h-screen py-12 bg-amber-50">
       <h1 className="text-center text-black font-bold text-3xl mb-12">Our Team</h1>
 
       <div className="flex flex-wrap gap-8 justify-center px-5">

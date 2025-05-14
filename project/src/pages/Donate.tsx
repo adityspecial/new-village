@@ -1,3 +1,4 @@
+
 import { CreditCard, Calendar, Heart, GraduationCap } from 'lucide-react';
 import { useState } from 'react';
 
@@ -7,12 +8,13 @@ const DonationOption = ({
   description,
   amount,
   frequency,
+  planId,
   onDonate,
   isEditable,
   value,
-  onChange,
+  onChange
 }: any) => (
-  <div className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between h-full">
+  <div className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between h-full ">
     <div>
       <Icon className="w-12 h-12 text-amber-600 mb-4" />
       <h3 className="text-xl font-semibold text-amber-900 mb-2">{title}</h3>
@@ -42,27 +44,19 @@ const DonationOption = ({
 );
 
 const Donate = () => {
-  const [oneTimeAmount, setOneTimeAmount] = useState<string>('');
-  const [showModal, setShowModal] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<any>(null);
-  const [formData, setFormData] = useState({
-    name: '',
-    address: '',
-    pincode: '',
-    pan: '',
-    email: '',
-  });
+  const [oneTimeAmount, setOneTimeAmount] = useState<string>(''); // State for one-time donation amount
 
+  // Donation options array, with the necessary planId for recurring donations
   const donationOptions = [
     {
       icon: Heart,
       title: 'One-Time Donation',
       description: 'Make a one-time contribution to support our initiatives.',
       frequency: 'One-time',
-      amount: Number(oneTimeAmount) || 0,
+      amount: Number(oneTimeAmount) || 0, // Use input state for amount
       isEditable: true,
-      value: oneTimeAmount,
-      onChange: (e: any) => setOneTimeAmount(e.target.value),
+      value: oneTimeAmount,  // Pass value from state
+      onChange: (e: any) => setOneTimeAmount(e.target.value),  // Update state on change
     },
     {
       icon: Calendar,
@@ -70,7 +64,7 @@ const Donate = () => {
       description: 'Become a regular supporter with monthly donations.',
       amount: 200,
       frequency: 'Monthly',
-      planId: 'plan_OkquniarKzEEkM',
+      planId: 'plan_OkquniarKzEEkM'  // Razorpay plan ID for monthly subscription
     },
     {
       icon: GraduationCap,
@@ -78,69 +72,83 @@ const Donate = () => {
       description: "Support a child's education for one year.",
       amount: 3500,
       frequency: 'Yearly',
-      planId: 'sub_QS2lYatwqzhbQ5',
-    },
+      planId: 'sub_QS2lYatwqzhbQ5'  // Razorpay plan ID for yearly subscription
+    }
   ];
 
-  const handleDonateClick = (option: any) => {
-    const isOneTime = !option.planId;
-    const amount = Number(oneTimeAmount);
-    if (isOneTime && amount <= 0) {
-      alert('Please enter a valid donation amount.');
-      return;
-    }
-    setSelectedOption(option);
-    setShowModal(true);
-  };
-
-  const handleFormSubmit = () => {
-    const { name, address, pincode, pan, email } = formData;
-
-    if (!name || !address || !pincode || !pan || !email) {
-      alert('Please fill all fields.');
+  // Load Razorpay for one-time donation
+  const loadRazorpay = (amount: number, title: string) => {
+    // Ensure valid amount
+    if (!amount || amount <= 0) {
+      alert('Please enter a valid amount.');
       return;
     }
 
-    setShowModal(false);
-    const isOneTime = !selectedOption.planId;
-    const amount = Number(oneTimeAmount);
+    console.log('One-Time Donation Amount:', amount); // Debug: Log the amount
 
-    const razorpayOptions = {
-      key: 'rzp_live_kE54OR7LfcjQLV',
-      amount: isOneTime ? amount * 100 : undefined,
-      plan_id: selectedOption.planId,
+    const options = {
+      key: 'rzp_live_kE54OR7LfcjQLV', // Your Razorpay Key
+      amount: amount * 100, // Convert to paise
       currency: 'INR',
       name: 'Karnataka Incubation Foundation',
-      description: selectedOption.title,
+      description: title,
       handler: function (response: any) {
-        alert(
-          `${isOneTime ? 'Payment' : 'Subscription'} successful! ID: ${
-            isOneTime ? response.razorpay_payment_id : response.razorpay_subscription_id
-          }`
-        );
+        alert(`Payment successful! Payment ID: ${response.razorpay_payment_id}`);
       },
       prefill: {
-        name,
-        email,
-        contact: '',
+        name: '',
+        email: '',
+        contact: ''
       },
       notes: {
-        donation_type: selectedOption.title,
-        address,
-        pincode,
-        pan,
+        donation_type: title
       },
       theme: {
-        color: '#FFBF00',
-      },
+        color: '#FFBF00'
+      }
     };
 
-    const rzp = new (window as any).Razorpay(razorpayOptions);
+    const rzp = new (window as any).Razorpay(options);
+    rzp.open();
+  };
+
+  // Load Razorpay subscription for recurring donations
+  const loadRazorpaySubscription = (planId: string | undefined, title: string) => {
+    if (!planId) {
+      console.error('Plan ID is missing');
+      return;
+    }
+
+    console.log('Subscription Plan ID:', planId); // Debug: Log the plan ID
+
+    const options = {
+      key: 'rzp_live_kE54OR7LfcjQLV',
+      plan_id: planId, // Use the Razorpay subscription plan ID
+      currency: 'INR',
+      name: 'Karnataka Incubation Foundation',
+      description: title,
+      handler: function (response: any) {
+        alert(`Subscription successful! Subscription ID: ${response.razorpay_subscription_id}`);
+      },
+      prefill: {
+        name: '',
+        email: '',
+        contact: ''
+      },
+      notes: {
+        donation_type: title
+      },
+      theme: {
+        color: '#FFBF00'
+      }
+    };
+
+    const rzp = new (window as any).Razorpay(options);
     rzp.open();
   };
 
   return (
-    <div className="py-12 min-h-screen flex flex-col pattern-bg-yellow">
+    <div className="py-12 min-h-screen flex flex-col pattern-bg-yellow bg-amber-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow">
         <h1 className="text-4xl font-bold text-amber-900 mb-8 text-center">Support Our Cause</h1>
         <p className="text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto">
@@ -149,47 +157,31 @@ const Donate = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {donationOptions.map((option, index) => (
-            <DonationOption key={index} {...option} onDonate={() => handleDonateClick(option)} />
+            <DonationOption
+              key={index}
+              {...option}
+              onDonate={() => {
+                if (option.planId) {
+                  // Handle recurring subscription donation
+                  loadRazorpaySubscription(option.planId, option.title);
+                } else {
+                  // Handle one-time donation
+                  const amount = Number(oneTimeAmount);
+                  if (amount <= 0) {
+                    alert('Please enter a valid donation amount.');
+                    return;
+                  }
+                  loadRazorpay(amount, option.title);
+                }
+              }}
+            />
           ))}
         </div>
       </div>
       <p className="text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto">
-        Note: All Indian monetary contributions to KIF are eligible for tax deduction under section 80G of the Income Tax Act
-      </p>
-
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg w-full max-w-md shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-amber-900">Enter Your Details</h2>
-            <div className="space-y-3">
-              {['name', 'address', 'pincode', 'pan', 'email'].map((field) => (
-                <input
-                  key={field}
-                  type={field === 'email' ? 'email' : 'text'}
-                  placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                  className="w-full p-2 border border-gray-300 rounded-md"
-                  value={(formData as any)[field]}
-                  onChange={(e) => setFormData({ ...formData, [field]: e.target.value })}
-                />
-              ))}
-            </div>
-            <div className="mt-6 flex justify-end gap-3">
-              <button
-                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-                onClick={() => setShowModal(false)}
-              >
-                Cancel
-              </button>
-              <button
-                className="px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700"
-                onClick={handleFormSubmit}
-              >
-                Proceed to Pay
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      Note:
+      All Indian monetary contributions to KIF are eligible for  tax deduction under section 80G of the Income Tax Act
+        </p>
     </div>
   );
 };

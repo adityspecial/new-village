@@ -12,9 +12,6 @@ import Impact from './pages/Impact';
 import Resources from './pages/Resources';
 import GetInvolved from './pages/GetInvolved';
 import Donate from './pages/Donate';
-import GalleryPage from './components/galleryPage';
-import ShareExperiences from './components/Experiences';
-import Events from './components/Events';
 
 // About subpages
 
@@ -110,9 +107,7 @@ function App() {
             <Route path="/about/reports" element={<FinancialReports />} />
             <Route path="/get-involved/csr" element={<CSRPartnership />} />
             <Route path="/csr-form" element={<CSRForm />} />
-            <Route path="/impact/gallery" element={<GalleryPage />} />
-            <Route path="/impact/share" element={<ShareExperiences />} />
-            <Route path="/get-involved/events" element={<Events />} />
+
           </Routes>
         </main>
         <Footer />

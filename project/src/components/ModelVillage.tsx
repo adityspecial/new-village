@@ -60,7 +60,7 @@ const ModelVillage: React.FC = () => {
   }, [isLightboxOpen]);
 
   return (
-    <div className="min-h-screen bg-amber-200 pattern-bg-yellow py-16">
+    <div className="min-h-screen bg-amber-50 pattern-bg-yellow py-16">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold text-amber-900 text-center mb-12">Model Village</h1>
 

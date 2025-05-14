@@ -6,7 +6,7 @@ const AksharPrabhavam: React.FC = () => {
     maxWidth: '100%',
     overflow: 'hidden',
     paddingBottom: '2rem',
-    backgroundImage: 'url("https://www.transparenttextures.com/patterns/always-grey.png")',
+    backgroundImage:  "url('/images/low-contrast-linen.png')",
   };
   const galleryStyle: React.CSSProperties = {
     display: 'flex',
@@ -38,14 +38,13 @@ const AksharPrabhavam: React.FC = () => {
   };
 
   const sectionStyle: React.CSSProperties = {
-    background: '#fffefc',
+    background: 'white',
     padding: '3rem 1rem',
     fontFamily: 'Segoe UI, sans-serif',
     lineHeight: '1.7',
     color: '#3b2f2f',
     maxWidth: '1000px',
-    margin: 'auto',
-    backgroundImage: 'url("https://www.transparenttextures.com/patterns/always-grey.png")',
+    margin: '1rem auto',
   };
 
   const cardStyle: React.CSSProperties = {

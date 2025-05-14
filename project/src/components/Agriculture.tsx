@@ -40,7 +40,7 @@ const AgricultureOverview = () => {
   ];
 
   return (
-    <div className="min-h-screen px-4 py-16 bg-gray-50 text-gray-900">
+    <div className="min-h-screen px-4 py-16 bg-green-50 text-gray-900 pattern-bg-yellow">
       <div className="max-w-6xl mx-auto space-y-12">
         <h1 className="text-4xl font-bold text-center text-green-800">
           Agriculture & Environment Initiatives
