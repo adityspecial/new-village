@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 
 // Main layout components
 import Navbar from './components/Navbar';
@@ -43,8 +44,9 @@ import Agriculture from './components/Agriculture';
 import CSRPartnership from './components/csrpartnerships';
 import CSRForm from './components/csrform';
 import Events from './components/Events';
-import GalleryPage from './components/galleryPage';
+import GalleryPage from './components/GalleryPage';
 import ShareExperiences from './components/Experiences';
+
 /*
 // Impact subpages
 import Newsletter from './pages/impact/Newsletter';
@@ -58,6 +60,7 @@ import Careers from './pages/get-involved/Careers';
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-amber-50 flex flex-col">
         <Navbar />
         <main className="flex-grow">

@@ -27,14 +27,14 @@ const programData: ProgramItem[] = [
   {
     id: 3,
     title: "Gram Siri",
-    description: "In 1985, electric poles were installed bringing light to every home, transforming village life and enabling evening activities.",
+    description: "Under Grama Siri, KIF hosts Kreedotsava, a village sports fest for all ages, and Pada Pooja, where children honor parents—fostering unity, joy, and values.",
     imageUrl: "/images/Programs/GS.JPG",
     linkUrl: "https://example.com/gram-siri"
   },
   {
     id: 4,
-    title: "Environment",
-    description: "A rural greening movement by KIF to help communities grow forests, restore land, and reconnect children with nature.Fighting deforestation, water scarcity, and climate change—village by village.",
+    title: "Grama Vana",
+    description: "Grama Vana is an environment initiative by Karnataka Incubation Foundation that empowers rural communities to create their own forests and protect the environment.",
     imageUrl: "/images/Programs/Env.jpg",
     linkUrl: "/work/environment"
   }
@@ -46,7 +46,8 @@ const Programs: React.FC = () => {
       <motion.h1 
         className="text-4xl font-bold text-center text-orange-800 mb-12"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
         Our Programs
@@ -58,11 +59,11 @@ const Programs: React.FC = () => {
             key={item.id}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            
           >
-            <a href={item.linkUrl}  rel="noopener noreferrer">
+            <a href={item.linkUrl} rel="noopener noreferrer">
               <div className={`grid md:grid-cols-2 gap-6 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
                 <div className={`${index % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
                   <div className="bg-white h-full p-6 rounded-2xl shadow-xl border-4 border-orange-300 transform transition duration-300 hover:shadow-2xl flex flex-col justify-center">
@@ -77,8 +78,9 @@ const Programs: React.FC = () => {
                       src={item.imageUrl}
                       alt={item.title}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                       whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 0.4 }}
                     />
                   </div>
                 </div>
