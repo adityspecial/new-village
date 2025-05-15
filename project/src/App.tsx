@@ -44,7 +44,7 @@ import Agriculture from './components/Agriculture';
 import CSRPartnership from './components/csrpartnerships';
 import CSRForm from './components/csrform';
 import Events from './components/Events';
-import GalleryPage from './components/galleryPage';
+import GalleryPage from './components/GalleryPage';
 import ShareExperiences from './components/Experiences';
 import InternshipPage from './components/InternshipPage';
 

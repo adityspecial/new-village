@@ -9,7 +9,7 @@ const testimonials = [
     role: 'Student',
     image: '/public/Images/SuccessStories/7 (1).jpeg',
     quote:
-      "I am Varshini, a girl from Javoor, and my childhood was filled with tragedy. My father, due to personal reasons, took my mother's life and left us shattered. Despite these hardships, the support from Akshar Kendra has been a beacon of hope in my life...",
+      "I am Varshini, a girl from Javoor, and my childhood was filled with tragedy. My father, due to personal reasons, took my mother's life and left us shattered...",
     link: 'impact/stories',
   },
   {
@@ -18,7 +18,7 @@ const testimonials = [
     role: 'Mentor',
     image: '/public/Images/SuccessStories/2.jpg',
     quote:
-      "Before I became a mentor at Akshar Kendra, I believed that parents mainly focused on their children’s exam results. Given Akshar Kendra’s emphasis on value-based education, I wasn’t sure if parents would buy into it. But seeing the transformation in the children has been incredible...",
+      "Before I became a mentor at Akshar Kendra, I believed that parents mainly focused on their children’s exam results. Given Akshar Kendra’s emphasis on value-based education, I wasn’t sure if parents would buy into...",
     link: 'impact/stories',
   },
   {
