@@ -6,7 +6,7 @@ const Reports = () => {
   const reportsData = [
     {
         id: 1,
-        title: "Independent Auditor's Report",
+        title: "Annual Report",
         date: "2024",
         link: "/public/publicationDocs/audit.pdf", // Add the download link here
       },
