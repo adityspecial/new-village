@@ -12,7 +12,7 @@ import Impact from './pages/Impact';
 import Resources from './pages/Resources';
 import GetInvolved from './pages/GetInvolved';
 import Donate from './pages/Donate';
-
+import Register from './components/Register';
 // About subpages
 
 import TeamPage from './components/TeamPage';
@@ -43,7 +43,7 @@ import Agriculture from './components/Agriculture';
 import CSRPartnership from './components/csrpartnerships';
 import CSRForm from './components/csrform';
 import Events from './components/Events';
-import GalleryPage from './components/galleryPage';
+import GalleryPage from './components/GalleryPage'
 import ShareExperiences from './components/Experiences';
 /*
 // Impact subpages
@@ -70,7 +70,9 @@ function App() {
             <Route path="/resources/*" element={<Resources />} />
             <Route path="/get-involved" element={<GetInvolved />} />
             <Route path="/donate" element={<Donate />} />
-
+             <Route path='/register' element={<Register/>} />
+             <Route path='/work/health' element={<Health/>} />
+            
             {/* About Subpages */}
           <Route path="/about/ourstory" element={<OurStory />} />
             <Route path="/about/team" element={<TeamPage />} />
@@ -100,7 +102,7 @@ function App() {
             {/* Work - Agriculture */}
             <Route path="/work/agriculture/farmer-training" element={<FarmerTraining />} />
               {/*<Route path="/work/agriculture/soil-health" element={<SoilHealth />} />*/}
-
+ 
             {/* Work - Environment */}
             <Route path="/work/agriculture/ek-gaon-ek-jangal" element={<EkGaon />} />
             <Route path="/work/health/hygiene-campaign" element={<Health />} />
