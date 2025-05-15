@@ -67,12 +67,6 @@ const Testimonials = () => {
 
                 {/* Scrollable quote container */}
                 <div
-                  className="overflow-y-auto pr-2"
-                  style={{
-                    maxHeight: '8.5rem', // approx 136px for scroll area
-                    scrollbarWidth: 'thin',
-                    scrollbarColor: '#c05621 #fef3c7',
-                  }}
                 >
                   <p className="text-gray-600 italic leading-relaxed">{`"${t.quote}"`}</p>
                 </div>
