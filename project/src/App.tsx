@@ -44,8 +44,9 @@ import Agriculture from './components/Agriculture';
 import CSRPartnership from './components/csrpartnerships';
 import CSRForm from './components/csrform';
 import Events from './components/Events';
-import GalleryPage from './components/GalleryPage';
+import GalleryPage from './components/galleryPage';
 import ShareExperiences from './components/Experiences';
+import InternshipPage from './components/InternshipPage';
 
 /*
 // Impact subpages
@@ -116,6 +117,8 @@ function App() {
             <Route path="/get-involved/events" element={<Events />} />
             <Route path="/impact/gallery" element={<GalleryPage />} />
             <Route path="/impact/share" element={<ShareExperiences />} />
+            <Route path="/get-involved/internships" element={<InternshipPage />} />
+
 
 
           </Routes>

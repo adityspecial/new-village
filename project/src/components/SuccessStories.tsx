@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Card from './Card';
 import Carousel from './Carousel';
@@ -11,7 +10,7 @@ const SuccessStories: React.FC = () => {
       <div className="w-full max-w-6xl px-4 flex flex-col items-center gap-32 mb-24">
         {/* First Carousel */}
         <section className="w-full">
-        <h2 className="text-2xl font-semibold mb-8 text-amber-600 text-center">Stories of Self Transformation</h2>
+          <h2 className="text-2xl font-semibold mb-8 text-amber-600 text-center">Stories of Self Transformation</h2>
           <Carousel maxVisibility={2}>
             <Card
               title="How Akshar Kendra Inspired Me to Lead with Values and Service"
@@ -82,11 +81,11 @@ const SuccessStories: React.FC = () => {
               title="Discovering Confidence, Friendship, and Responsibility at Akshar Kendra"
               content={
                 <div>
-                  <p>My name is Chandru Kalagoudar.  I’ve been a student at Akshara Kendra for a year, and my life has changed in ways I never imagined. When I first joined, I was shy and hesitant, unsure of myself. To help me overcome this, I was sent to Chaitanya Shibir in October at Kalghatagi. The first two days, I missed my parents and cried, but as time passed, I made new friends and began participating in everything. After returning, I celebrated my birthday by planting a sapling instead of cutting a cake and even bought a piggy bank to save money for a Raksha Bandhan gift for my sister. The fears and shyness I once had are now gone. Today, I feel more confident, active, and even developing leadership qualities. I’m grateful to Akshara Kendra for giving me the courage to shine and grow. </p>
+                  <p>My name is Chandru Kalagoudar.  I've been a student at Akshara Kendra for a year, and my life has changed in ways I never imagined. When I first joined, I was shy and hesitant, unsure of myself. To help me overcome this, I was sent to Chaitanya Shibir in October at Kalghatagi. The first two days, I missed my parents and cried, but as time passed, I made new friends and began participating in everything. After returning, I celebrated my birthday by planting a sapling instead of cutting a cake and even bought a piggy bank to save money for a Raksha Bandhan gift for my sister. The fears and shyness I once had are now gone. Today, I feel more confident, active, and even developing leadership qualities. I'm grateful to Akshara Kendra for giving me the courage to shine and grow. </p>
                   <p className="mt-4">– <strong>Chandru Kalagoudar</strong>, 6th Std</p>
                 </div>
               }
-            imageSrc="/images/SuccessStories/6 (1).jpeg"
+              imageSrc="/images/SuccessStories/6 (1).jpeg"
               borderSize="2"
             />
             <Card
@@ -116,15 +115,15 @@ const SuccessStories: React.FC = () => {
 
         {/* Second Carousel */}
         <section className="w-full">
-        <h2 className="text-2xl font-semibold mb-8 text-amber-600 text-center">
-  Voices of Change Makers
-</h2>
+          <h2 className="text-2xl font-semibold mb-8 text-amber-600 text-center">
+            Voices of Change Makers
+          </h2>
           <Carousel maxVisibility={2}>
             <Card
               title="Empowering Myself and Others: My Journey as a Mentor at Akshar Kendra"
               content={
                 <div>
-                  <p>Managing the Swami Vivekananda Akshar Kendra in Pudukalkatti village has been a transformative experience for me. It has helped me develop a habit of reading, take on responsibilities with sincerity, and gain knowledge across various areas. I’ve learned the importance of time management and how to divide tasks effectively during programs. Handling financial matters for large events has sharpened my organizational skills. Being around children has taught me patience and how to connect with them in a nurturing way. Additionally, I’ve made it a practice to wake up early and embrace healthy habits like eating more vegetables. This journey with Akshar Kendra has enriched me personally and socially, while shaping me into a better mentor. 
+                  <p>Managing the Swami Vivekananda Akshar Kendra in Pudukalkatti village has been a transformative experience for me. It has helped me develop a habit of reading, take on responsibilities with sincerity, and gain knowledge across various areas. I've learned the importance of time management and how to divide tasks effectively during programs. Handling financial matters for large events has sharpened my organizational skills. Being around children has taught me patience and how to connect with them in a nurturing way. Additionally, I've made it a practice to wake up early and embrace healthy habits like eating more vegetables. This journey with Akshar Kendra has enriched me personally and socially, while shaping me into a better mentor. 
                   </p>
                   <p className="mt-4">– <strong>Laxmi Tegur, Mentor, Pudukalkatti Village
                   </strong></p>
@@ -137,7 +136,7 @@ const SuccessStories: React.FC = () => {
               title="When Values Became More Important Than Marks"
               content={
                 <div>
-                  <p>Before I became a mentor at Akshar Kendra, I believed that parents mainly focused on their children’s exam results. Given Akshar Kendra’s emphasis on value-based education, I wasn’t sure if parents would truly support this approach. However, over time, I saw a shift in perspective. Parents began to recognize the positive transformation in their children and started prioritizing values over just academic performance. One parent even told me, “Every school teaches reading and writing, but along with that, children need good values too.” This parent not only enrolled all their children at Akshar Kendra but also shared the importance of value-based education with their neighbors. This change has inspired me to further promote programs in the village that reflect and preserve our rich culture, motivating me every day to continue my work with Akshar Kendra. </p>
+                  <p>Before I became a mentor at Akshar Kendra, I believed that parents mainly focused on their children's exam results. Given Akshar Kendra's emphasis on value-based education, I wasn't sure if parents would truly support this approach. However, over time, I saw a shift in perspective. Parents began to recognize the positive transformation in their children and started prioritizing values over just academic performance. One parent even told me, "Every school teaches reading and writing, but along with that, children need good values too." This parent not only enrolled all their children at Akshar Kendra but also shared the importance of value-based education with their neighbors. This change has inspired me to further promote programs in the village that reflect and preserve our rich culture, motivating me every day to continue my work with Akshar Kendra. </p>
                   <p className="mt-4">– <strong>Vatsala Madiwalar, Mentor, Mugad Village
                   </strong></p>
                 </div>
@@ -149,9 +148,9 @@ const SuccessStories: React.FC = () => {
               title="Turning Trust into Opportunity: My Experience at Akshar Kendra"
               content={
                 <div>
-                  <p>My name is Veeresh Ramappa Karadi, and I’ve been teaching at Dr. S. R. Ranganathan Akshar Kendra in Ganjigatti for the past year and a half. When it came time for our students to pay a ₹500 registration fee, we wanted to make sure it wasn’t a financial burden for the families. We came up with a creative fundraising idea: we divided the students into 23 groups of three and gave them a packet of biscuits and a bottle of water to sell in the village. What happened next was nothing short of heartwarming.
-The villagers, who had immense trust and belief in Akshar Kendra’s work, bought the items at three times the original price—not out of obligation, but out of love and support for the children’s education. In just one hour, our students raised ₹6,384 with an initial investment of only ₹2,100.
-This wasn’t just a financial success. It was a lesson in teamwork, community support, and self-reliance. Most importantly, it deepened the bond between Akshar Kendra and the people of Ganjigatti, showing the true power of trust and collaboration.</p>
+                  <p>My name is Veeresh Ramappa Karadi, and I've been teaching at Dr. S. R. Ranganathan Akshar Kendra in Ganjigatti for the past year and a half. When it came time for our students to pay a ₹500 registration fee, we wanted to make sure it wasn't a financial burden for the families. We came up with a creative fundraising idea: we divided the students into 23 groups of three and gave them a packet of biscuits and a bottle of water to sell in the village. What happened next was nothing short of heartwarming.
+The villagers, who had immense trust and belief in Akshar Kendra's work, bought the items at three times the original price—not out of obligation, but out of love and support for the children's education. In just one hour, our students raised ₹6,384 with an initial investment of only ₹2,100.
+This wasn't just a financial success. It was a lesson in teamwork, community support, and self-reliance. Most importantly, it deepened the bond between Akshar Kendra and the people of Ganjigatti, showing the true power of trust and collaboration.</p>
                   <p className="mt-4">– <strong>Veeresh Karadi, Mentor, Ganjigatti Village
                   </strong></p>
                 </div>
@@ -163,8 +162,8 @@ This wasn’t just a financial success. It was a lesson in teamwork, community s
               title="Nurturing 20 Futures: My Pride as an Akshar Kendra Mentor"
               content={
                 <div>
-                  <p>I’ve been running the Jai Hanuman Akshar Kendra in Talavayi for the past three years, and this journey has helped me grow as much as the children I teach. Though I was often invited to anchor programs in college, it was here at the Kendra that I truly found my voice and confidence to speak in front of any crowd, on any topic. Taking responsibility and leading activities taught me how to manage not just a class, but myself.
-                  Because of this experience, I was chosen to teach at my own college during my degree, and I stood confidently in front of students, ready for any question. But what brings me the most joy is seeing the transformation in my 20 students. They’re not just learning lessons — they’re growing in confidence, values, and discipline. Watching them blossom day by day fills me with pride and purpose. I feel blessed to play a part in shaping these 20 bright futures.</p>
+                  <p>I've been running the Jai Hanuman Akshar Kendra in Talavayi for the past three years, and this journey has helped me grow as much as the children I teach. Though I was often invited to anchor programs in college, it was here at the Kendra that I truly found my voice and confidence to speak in front of any crowd, on any topic. Taking responsibility and leading activities taught me how to manage not just a class, but myself.
+                  Because of this experience, I was chosen to teach at my own college during my degree, and I stood confidently in front of students, ready for any question. But what brings me the most joy is seeing the transformation in my 20 students. They're not just learning lessons — they're growing in confidence, values, and discipline. Watching them blossom day by day fills me with pride and purpose. I feel blessed to play a part in shaping these 20 bright futures.</p>
                   <p className="mt-4">– <strong>Kavita Bhavi, Mentor, Talavayi Village
                   </strong></p>
                 </div>
