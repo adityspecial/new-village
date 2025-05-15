@@ -13,6 +13,7 @@ import Impact from './pages/Impact';
 import Resources from './pages/Resources';
 import GetInvolved from './pages/GetInvolved';
 import Donate from './pages/Donate';
+import HealthPage from './components/Health';
 
 // About subpages
 
@@ -118,6 +119,7 @@ function App() {
             <Route path="/impact/gallery" element={<GalleryPage />} />
             <Route path="/impact/share" element={<ShareExperiences />} />
             <Route path="/get-involved/internships" element={<InternshipPage />} />
+            <Route path="/work/health" element={<HealthPage />} />
 
 
 
