@@ -17,7 +17,7 @@ const HealthHygiene = () => {
       {/* Section 1: Image left, Text right */}
       <section className="flex flex-col lg:flex-row items-center gap-10">
         <motion.img
-          src="https://img.freepik.com/premium-vector/girls-learning-menstrual-hygiene_23-2148524318.jpg"
+          src="/images/health/3.jpg"
           alt="Health Hygiene"
           className="w-full lg:w-1/2 rounded-2xl shadow-lg"
           initial={{ opacity: 0, x: -50 }}
@@ -61,7 +61,7 @@ const HealthHygiene = () => {
           </ul>
         </motion.div>
         <motion.img
-          src="https://img.freepik.com/premium-vector/girls-learning-menstrual-hygiene_23-2148524318.jpg"
+          src="/images/health/1.jpg"
           alt="Hygiene Education"
           className="w-full lg:w-1/2 rounded-2xl shadow-lg"
           initial={{ opacity: 0, x: 50 }}
@@ -73,7 +73,7 @@ const HealthHygiene = () => {
       {/* Section 3: Image left, Text right */}
       <section className="flex flex-col lg:flex-row items-center gap-10">
         <motion.img
-          src="https://img.freepik.com/premium-vector/family-washing-hands-cleaning-up-kitchen_566886-3032.jpg"
+          src="/images/health/2.jpg"
           alt="Healthy Families"
           className="w-full lg:w-1/2 rounded-2xl shadow-lg"
           initial={{ opacity: 0, x: -50 }}

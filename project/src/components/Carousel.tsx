@@ -7,8 +7,8 @@ interface CarouselProps {
 }
 
 const Carousel: React.FC<CarouselProps> = ({ children, maxVisibility = 3 }) => {
-  const [active, setActive] = useState<number>(2);
   const count = React.Children.count(children);
+  const [active, setActive] = useState<number>(Math.min(2, count - 1));
 
   const goPrev = () => {
     setActive((prev) => (prev - 1 + count) % count);
@@ -20,6 +20,7 @@ const Carousel: React.FC<CarouselProps> = ({ children, maxVisibility = 3 }) => {
 
   return (
     <div className="relative w-full max-w-4xl h-[45rem] perspective-[500px] preserve-3d mx-auto">
+      {/* Navigation Buttons */}
       <button
         className="absolute top-1/2 left-4 -translate-y-1/2 text-black z-20 border-2 border-black rounded-full p-2 hover:bg-gray-100 transition-colors"
         onClick={goPrev}
@@ -30,7 +31,6 @@ const Carousel: React.FC<CarouselProps> = ({ children, maxVisibility = 3 }) => {
 
       <div className="w-full h-full flex items-center justify-center">
         {React.Children.map(children, (child, i) => {
-          // This adjustment ensures a smooth looped layout
           let offset = (active - i + count) % count;
           if (offset > count / 2) offset -= count;
           const absOffset = Math.abs(offset);
@@ -38,6 +38,7 @@ const Carousel: React.FC<CarouselProps> = ({ children, maxVisibility = 3 }) => {
 
           return (
             <div
+              key={i}
               className="absolute w-full max-w-3xl h-full transition-all duration-300 px-4"
               style={{
                 '--active': i === active ? 1 : 0,
@@ -56,12 +57,15 @@ const Carousel: React.FC<CarouselProps> = ({ children, maxVisibility = 3 }) => {
                 filter: `blur(${absOffset * 8}px)`,
               } as React.CSSProperties}
             >
-              {child}
+              <div className="h-full overflow-y-auto p-6">
+                {child}
+              </div>
             </div>
           );
         })}
       </div>
 
+      {/* Navigation Buttons */}
       <button
         className="absolute top-1/2 right-4 -translate-y-1/2 text-black z-20 border-2 border-black rounded-full p-2 hover:bg-gray-100 transition-colors"
         onClick={goNext}

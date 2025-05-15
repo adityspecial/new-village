@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 
 // Main layout components
 import Navbar from './components/Navbar';
@@ -12,6 +13,7 @@ import Impact from './pages/Impact';
 import Resources from './pages/Resources';
 import GetInvolved from './pages/GetInvolved';
 import Donate from './pages/Donate';
+import HealthPage from './components/Health';
 import Register from './components/Register';
 // About subpages
 
@@ -43,8 +45,10 @@ import Agriculture from './components/Agriculture';
 import CSRPartnership from './components/csrpartnerships';
 import CSRForm from './components/csrform';
 import Events from './components/Events';
-import GalleryPage from './components/GalleryPage'
+import GalleryPage from './components/GalleryPage';
 import ShareExperiences from './components/Experiences';
+import InternshipPage from './components/InternshipPage';
+import Register from './components/Register';
 /*
 // Impact subpages
 import Newsletter from './pages/impact/Newsletter';
@@ -58,6 +62,7 @@ import Careers from './pages/get-involved/Careers';
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-amber-50 flex flex-col">
         <Navbar />
         <main className="flex-grow">
@@ -115,6 +120,9 @@ function App() {
             <Route path="/get-involved/events" element={<Events />} />
             <Route path="/impact/gallery" element={<GalleryPage />} />
             <Route path="/impact/share" element={<ShareExperiences />} />
+            <Route path="/get-involved/internships" element={<InternshipPage />} />
+          
+
 
 
           </Routes>

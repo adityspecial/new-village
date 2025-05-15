@@ -78,7 +78,7 @@ const Yoga = () => {
       {/* Section 3: Image left, text right */}
       <section className="flex flex-col lg:flex-row items-center gap-10">
         <motion.img
-          src="https://img.freepik.com/free-vector/yoga-concept-illustration_114360-1607.jpg"
+          src="/images/health/4.jpg"
           alt="Yoga Impact"
           className="w-full lg:w-1/2 rounded-2xl shadow-xl"
           initial={{ opacity: 0, x: -60 }}

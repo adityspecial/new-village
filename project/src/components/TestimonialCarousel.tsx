@@ -19,40 +19,48 @@ const TestimonialCarousel: React.FC<CarouselProps> = ({ testimonials }) => {
   const goToPrevious = () => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <div className="relative w-full max-w-6xl mx-auto">
-      <div className="relative h-[500px]">
-        {testimonials.map((t, idx) => {
-          const isActive = idx === activeIndex;
-          return (
-            <div
-              key={idx}
-              className={`absolute inset-0 transition-opacity duration-500 ${isActive ? 'opacity-100 z-20' : 'opacity-0 z-10'}`}
-            >
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div className="h-64 p-4">
-                  <img src={t.image} alt={t.author} className="w-full h-full object-top object-contain" />
-                </div>
-                <div className="p-8">
-                  <blockquote className="text-lg text-gray-700 mb-4">"{t.content}"</blockquote>
-                  <p className="font-semibold text-xl text-gray-900">{t.author}</p>
-                  <p className="text-indigo-600">{t.role}</p>
-                </div>
+    <div className="relative w-full max-w-6xl mx-auto overflow-hidden">
+      {/* Sliding container */}
+      <div
+        className="flex transition-transform duration-500"
+        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+      >
+        {testimonials.map((t, idx) => (
+          <div key={idx} className="min-w-full p-4">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div className="h-64 p-4">
+                <img src={t.image} alt={t.author} className="w-full h-full object-top object-contain" />
+              </div>
+              <div className="p-8 max-h-[300px] overflow-y-auto">
+                <blockquote className="text-lg text-gray-700 mb-4">"{t.content}"</blockquote>
+                <p className="font-semibold text-xl text-gray-900">{t.author}</p>
+                <p className="text-indigo-600">{t.role}</p>
               </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
-      <button onClick={goToPrevious} className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white text-gray-800 p-2 rounded-full shadow">
+
+      {/* Navigation buttons */}
+      <button
+        onClick={goToPrevious}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white text-gray-800 p-2 rounded-full shadow"
+        aria-label="Previous testimonial"
+      >
         <ChevronLeft />
       </button>
-      <button onClick={goToNext} className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white text-gray-800 p-2 rounded-full shadow">
+      <button
+        onClick={goToNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white text-gray-800 p-2 rounded-full shadow"
+        aria-label="Next testimonial"
+      >
         <ChevronRight />
       </button>
     </div>
   );
 };
 
-export const testimonials = [
+export const testimonials: TestimonialProps[] = [
   {
     content: `As an Agri-Business Management student, I’ve been volunteering with the Karnataka Incubation Foundation for nearly two years. During this time, I’ve contributed to rural development and farmer welfare initiatives, gaining hands-on experience with grassroots challenges. This journey has deepened my passion for agriculture and strengthened my commitment to creating a meaningful impact in the sector.`,
     author: 'Prasannakumar P. Shiddagoudar',

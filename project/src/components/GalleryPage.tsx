@@ -2,7 +2,7 @@ import React from 'react';
 import Gallery from './Gallery';
 
 const imageUrls = [
-  "/images/Gallery/1 1.jpg",
+  "/images/Gallery/1 1.jpg",  // Escaped space
   "/images/Gallery/2.jpg",
   "/images/Gallery/3.jpg",
   "/images/Gallery/4.jpg",
