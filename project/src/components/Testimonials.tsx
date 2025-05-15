@@ -42,18 +42,18 @@ const Testimonials = () => {
           Voices from the Village
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {testimonials.map((t) => (
             <div
               key={t.id}
-              className="bg-white rounded-xl shadow-lg p-6 relative flex flex-col max-h-[24rem] min-h-[24rem]"
+              className="bg-white rounded-xl shadow-lg p-6 relative flex flex-col max-h-[28rem] min-h-[28rem] sm:min-h-[26rem]"
             >
               <div>
                 <div className="absolute -top-4 left-6 bg-amber-50 rounded-full p-2">
                   <Quote className="w-6 h-6 text-amber-500" />
                 </div>
 
-                <div className="flex items-center mb-6 mt-4">
+                <div className="flex items-center mb-6 mt-6">
                   <img
                     src={t.image}
                     alt={t.name}
@@ -65,10 +65,8 @@ const Testimonials = () => {
                   </div>
                 </div>
 
-                {/* Scrollable quote container */}
-                <div
-                >
-                  <p className="text-gray-600 italic leading-relaxed">{`"${t.quote}"`}</p>
+                <div className="text-sm text-gray-600 italic leading-relaxed line-clamp-[8] sm:line-clamp-[7]">
+                  {`"${t.quote}"`}
                 </div>
               </div>
 

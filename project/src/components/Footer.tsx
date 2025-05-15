@@ -1,9 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Youtube, ArrowUp } from 'lucide-react';
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Facebook,
+  Twitter,
+  Instagram,
+  Youtube,
+  ArrowUp,
+} from 'lucide-react';
 import TranslateWidget from './TranslateWidget';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -12,36 +21,37 @@ const Footer = () => {
     {
       name: 'Facebook',
       icon: Facebook,
-      url: 'https://www.facebook.com/profile.php?id=61556159143910'
+      url: 'https://www.facebook.com/profile.php?id=61556159143910',
     },
     {
       name: 'Twitter',
       icon: Twitter,
-      url: 'https://twitter.com/kifdwd'
+      url: 'https://twitter.com/kifdwd',
     },
     {
       name: 'Instagram',
       icon: Instagram,
-      url: 'https://www.instagram.com/kifdwd'
+      url: 'https://www.instagram.com/kifdwd',
     },
     {
       name: 'Youtube',
       icon: Youtube,
-      url: 'https://www.youtube.com/@kifdwd'
-    }
+      url: 'https://www.youtube.com/@kifdwd',
+    },
   ];
 
   return (
-    <footer className="bg-orange-800 text-amber-50 pattern-bg">
+    <footer className="bg-orange-800 text-amber-50 pattern-bg overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <span className="text-xl font-semibold">KIF</span>
             </div>
-            <p className="text-amber-200 mb-4">
-              Empowering rural communities through education, sustainable agriculture, and preservation of traditional crafts while creating economic opportunities for villagers
+            <p className="text-amber-200">
+              "Empowering rural communities through education, sustainable
+              agriculture, and preservation of traditional crafts while creating economic opportunities for villagers"
             </p>
           </div>
 
@@ -49,36 +59,23 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-amber-200 hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-amber-200 hover:text-white transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/work" className="text-amber-200 hover:text-white transition-colors">
-                  Our Work
-                </Link>
-              </li>
-              <li>
-                <Link to="/impact" className="text-amber-200 hover:text-white transition-colors">
-                  Impact
-                </Link>
-              </li>
-              <li>
-                <Link to="/get-involved" className="text-amber-200 hover:text-white transition-colors">
-                  Get Involved
-                </Link>
-              </li>
-              <li>
-                <Link to="/donate" className="text-amber-200 hover:text-white transition-colors">
-                  Donate
-                </Link>
-              </li>
+              {[
+                ['/', 'Home'],
+                ['/about', 'About Us'],
+                ['/work', 'Our Work'],
+                ['/impact', 'Impact'],
+                ['/get-involved', 'Get Involved'],
+                ['/donate', 'Donate'],
+              ].map(([path, label]) => (
+                <li key={label}>
+                  <Link
+                    to={path}
+                    className="text-amber-200 hover:text-white transition-colors"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -87,8 +84,10 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-2">
               <li className="flex items-start space-x-2">
-                <MapPin className="h-6 w-6 mt-1 text-amber-200" />
-                <span className="text-amber-200">#371, Hebballi Road, Maradagi Village - 580112</span>
+                <MapPin className="h-5 w-5 mt-1 text-amber-200" />
+                <span className="text-amber-200">
+                  #371, Hebballi Road, Maradagi Village - 580112
+                </span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-amber-200" />
@@ -101,10 +100,10 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Social Links */}
+          {/* Social + Language */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mb-6">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
@@ -118,20 +117,21 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-          </div>
-          <div>
-            <TranslateWidget />
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Language</h3>
+              <TranslateWidget />
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 pt-8 border-t border-amber-800 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-amber-200 text-sm">
+        <div className="mt-10 pt-6 border-t border-amber-700 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-amber-200 text-center sm:text-left">
             © {new Date().getFullYear()} KIF. All rights reserved.
           </p>
           <button
             onClick={scrollToTop}
-            className="mt-4 md:mt-0 bg-amber-800 hover:bg-amber-700 text-white p-2 rounded-full transition-colors"
+            className="bg-amber-700 hover:bg-amber-600 text-white p-2 rounded-full transition-colors"
             aria-label="Scroll to top"
           >
             <ArrowUp className="h-5 w-5" />

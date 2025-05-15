@@ -25,124 +25,98 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const cardStyle: React.CSSProperties = {
-    position: 'relative',
-    width: '300px',
-    height: '300px',
-    overflow: 'hidden',
-    borderRadius: '10px',
-    boxShadow: '0 8px 20px rgba(0,0,0,0.3)',
-    cursor: 'pointer',
-  };
-
-  const imgStyle: React.CSSProperties = {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-  };
-
-  const textWrapperStyle: React.CSSProperties = {
-    position: 'absolute',
-    bottom: 0,
-    width: '100%',
-    background: '#fff',
-    padding: '15px',
-    zIndex: 1,
-  };
-
-  const usernameStyle: React.CSSProperties = {
-    fontSize: '14px',
-    color: '#FF5A22',
-    textDecoration: 'none',
-  };
-
-  const modalOverlayStyle: React.CSSProperties = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100vw',
-    height: '100vh',
-    backgroundColor: 'rgba(0,0,0,0.6)',
-    display: isModalOpen ? 'flex' : 'none',
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 9999,
-  };
-
-  const modalContentStyle: React.CSSProperties = {
-    backgroundColor: '#fff',
-    width: '80%',
-    maxWidth: '900px',
-    borderRadius: '10px',
-    overflow: 'hidden',
-    display: 'flex',
-    boxShadow: '0 12px 30px rgba(0,0,0,0.5)',
-  };
-
-  const modalImgStyle: React.CSSProperties = {
-    width: '50%',
-    objectFit: 'cover',
-  };
-
-  const modalTextStyle: React.CSSProperties = {
-    padding: '30px',
-    width: '50%',
-    overflowY: 'auto',
-  };
-
-  const closeButtonStyle: React.CSSProperties = {
-    position: 'absolute',
-    top: '20px',
-    right: '30px',
-    fontSize: '30px',
-    fontWeight: 'bold',
-    color: '#fff',
-    cursor: 'pointer',
-    zIndex: 10000,
-  };
-
   return (
     <>
-      <div style={cardStyle} onClick={() => setIsModalOpen(true)}>
-        <img src={imageUrl} alt={name} style={imgStyle} />
-        <div style={textWrapperStyle}>
-          <strong style={{ fontSize: '18px' }}>{name}</strong>
-          <br />
-          <h4 style={{ color: '#FF5A22', marginTop: 0 }}>{role}</h4>
+      {/* Card */}
+      <div
+        className="relative w-full max-w-xs md:max-w-sm h-auto cursor-pointer rounded-lg shadow-lg overflow-hidden"
+        onClick={() => setIsModalOpen(true)}
+      >
+        <img
+          src={imageUrl}
+          alt={name}
+          className="w-full h-auto aspect-[4/3] md:h-80 md:aspect-auto object-contain bg-gray-100"
+          loading="lazy"
+        />
+        <div className="absolute bottom-0 w-full bg-white  p-4">
+          <strong className="block text-lg md:text-xl font-semibold text-gray-900">{name}</strong>
+          <h4 className="mt-1 text-orange-600">{role}</h4>
         </div>
       </div>
 
+      {/* Modal */}
       {isModalOpen && (
         <div
-          style={modalOverlayStyle}
-          onClick={() => setIsModalOpen(false)} // Closes when clicking outside
+          className="fixed inset-0 bg-black  flex items-center justify-center z-50 p-4"
+          onClick={() => setIsModalOpen(false)}
+          aria-modal="true"
+          role="dialog"
         >
           <div
-            style={modalContentStyle}
-            onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside
+            className="relative bg-white rounded-lg shadow-2xl max-w-4xl w-full flex flex-col md:flex-row overflow-hidden max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
           >
-            <div style={closeButtonStyle} onClick={() => setIsModalOpen(false)}>
+            {/* Close button */}
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 text-3xl font-bold text-gray-700 hover:text-gray-900 transition"
+              aria-label="Close modal"
+            >
               &times;
-            </div>
-            <img src={imageUrl} alt={name} style={modalImgStyle} />
-            <div style={modalTextStyle}>
-              <h2>{name}</h2>
-              <h4 style={{ color: '#FF5A22', marginTop: 0 }}>{role}</h4>
-              <p style={{ fontSize: '14px', lineHeight: '22px' }}>{description}</p>
-              <p style={{ color: '#999' }}>@{username}</p>
+            </button>
 
-              {/* Social Media Links */}
-              <div style={{ marginTop: '20px', display: 'flex', gap: '10px' }}>
-                <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            {/* Image */}
+            <img
+              src={imageUrl}
+              alt={name}
+              className="w-full md:w-1/2 object-contain bg-gray-100 p-4
+                         max-h-64 md:max-h-full"
+              loading="lazy"
+            />
+
+            {/* Text content */}
+            <div className="p-6 md:p-8 md:w-1/2 overflow-y-auto max-h-[60vh] md:max-h-full">
+              <h2 className="text-2xl font-bold text-gray-900">{name}</h2>
+              <h4 className="mt-1 text-orange-600">{role}</h4>
+              <p className="mt-4 text-gray-700 leading-relaxed text-sm md:text-base">{description}</p>
+              <p className="mt-3 text-gray-500 text-sm">@{username}</p>
+
+              {/* Social links */}
+              <div className="mt-6 flex space-x-4">
+                <a
+                  href={socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="text-gray-600 hover:text-blue-600 transition"
+                >
                   <Facebook className="h-6 w-6" />
                 </a>
-                <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <a
+                  href={socialLinks.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter"
+                  className="text-gray-600 hover:text-blue-400 transition"
+                >
                   <Twitter className="h-6 w-6" />
                 </a>
-                <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <a
+                  href={socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="text-gray-600 hover:text-pink-600 transition"
+                >
                   <Instagram className="h-6 w-6" />
                 </a>
-                <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a
+                  href={socialLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="text-gray-600 hover:text-blue-700 transition"
+                >
                   <Linkedin className="h-6 w-6" />
                 </a>
               </div>
