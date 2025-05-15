@@ -4,7 +4,7 @@ import Carousel from './Carousel';
 
 const SuccessStories: React.FC = () => {
   return (
-    <div className="w-full flex flex-col items-center justify-start text-amber-800 font-sans py-16 pattern-bg-yellow">
+    <div className="w-full flex flex-col items-center justify-start text-amber-800 font-sans py-16 pattern-bg-yellow overflow-hidden">
       <h1 className="text-4xl font-bold mb-12">Success Stories</h1>
       
       <div className="w-full max-w-6xl px-4 flex flex-col items-center gap-32 mb-24">
@@ -85,7 +85,7 @@ const SuccessStories: React.FC = () => {
                   <p className="mt-4">– <strong>Chandru Kalagoudar</strong>, 6th Std</p>
                 </div>
               }
-              imageSrc="/images/SuccessStories/6 (1).jpeg"
+              imageSrc="/images/SuccessStories/6.jpeg"
               borderSize="2"
             />
             <Card
