@@ -97,6 +97,14 @@ const Navbar = () => {
             { name: 'Yoga', path: '/work/health/yoga' }
           ]
         },
+        {
+          name: 'Gram-Siri',
+          path: '/work/gramsiri',
+          children: [
+            { name: 'Pada Pooja', path: '/work/gramsiri/Padapooja' },
+            { name: 'Kreedotsava', path: '/work/gramsiri/kreedotsava' }
+          ]
+        },
         { name: 'Livelihood', path: '/work/livelihood' }
       ]
     },

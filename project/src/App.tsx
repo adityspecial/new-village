@@ -14,7 +14,7 @@ import Resources from './pages/Resources';
 import GetInvolved from './pages/GetInvolved';
 import Donate from './pages/Donate';
 import HealthPage from './components/Health';
-import Register from './components/Register';
+
 // About subpages
 
 import TeamPage from './components/TeamPage';
@@ -49,8 +49,10 @@ import GalleryPage from './components/GalleryPage';
 import ShareExperiences from './components/Experiences';
 import InternshipPage from './components/InternshipPage';
 import Register from './components/Register';
+import Kreedotsava from './components/Kreedaustav';
+import PadaPooja from './components/Pada-Pooja';
 /*
-// Impact subpages
+// Impact subpages`
 import Newsletter from './pages/impact/Newsletter';
 import SuccessStories from './pages/impact/SuccessStories';
 
@@ -109,6 +111,8 @@ function App() {
               {/*<Route path="/work/agriculture/soil-health" element={<SoilHealth />} />*/}
  
             {/* Work - Environment */}
+            <Route path="/work/gramsiri/kreedotsava" element={<Kreedotsava />} />
+            <Route path="/work/gramsiri/PadaPooja" element={<PadaPooja />} />
             <Route path="/work/agriculture/ek-gaon-ek-jangal" element={<EkGaon />} />
             <Route path="/work/health/hygiene-campaign" element={<Health />} />
             <Route path="/work/health/yoga" element={<Yoga />} />
