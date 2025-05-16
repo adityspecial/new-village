@@ -73,7 +73,7 @@ const RuralEmpowerment = () => {
       {/* Impact Section */}
       <section className="flex flex-col lg:flex-row items-center gap-10">
         <motion.img
-          src="https://img.freepik.com/free-vector/community-concept-illustration_114360-3004.jpg"
+          src="/images/Livlihood/1.jpg"
           alt="Community Impact"
           className="w-full lg:w-1/2 rounded-2xl shadow-xl"
           initial={{ opacity: 0, x: -60 }}

@@ -88,8 +88,8 @@ const DigitalLiteracy: React.FC = () => {
         <div style={galleryStyle}>
           {[
             '/images/Digital-literacy/488470140_9351316421604105_2816224130122345181_n (2) (2).jpg',
-            '/images/Digital-literacy/DSC03816.JPG',
-            '/images/Digital-literacy/DSC03822.JPG',
+            '/images/Digital-literacy/1.jpg',
+            '/images/Digital-literacy/2.jpg',
             ,
           ].map((src, i) => (
             <img

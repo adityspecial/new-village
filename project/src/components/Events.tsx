@@ -2,6 +2,7 @@ interface Event {
   title: string;
   date: string;
   time: string;
+  venue: string;
   description: string;
 }
 
@@ -10,7 +11,8 @@ const events: Event[] = [
     title: "Annual Report Release",
     date: "May 18, 2025",
     time: "5:00 PM",
-    description: "Test your knowledge of literature, authors, and genres in this fun quiz night.",
+    venue: "Rangayana, Dharwad",
+    description: "Join us for the release of our Annual Report, which highlights the impactful work we have done throughout the year.",
   },
 ];
 
@@ -30,6 +32,9 @@ const Events = () => {
               <h3 className="text-xl font-semibold text-amber-800">{event.title}</h3>
               <p className="text-sm text-gray-600 mt-1">
                 {event.date} &middot; {event.time}
+              </p>
+              <p className="text-sm text-gray-600 mt-1">
+                {event.venue}
               </p>
               <p className="mt-3 text-gray-700">{event.description}</p>
             </div>

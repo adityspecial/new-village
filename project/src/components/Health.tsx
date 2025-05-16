@@ -1,4 +1,5 @@
 import React from 'react';
+import { Hand, StretchHorizontal } from 'lucide-react'; // Import icons
 
 const HealthPage = () => {
   const healthPrograms = [
@@ -6,11 +7,13 @@ const HealthPage = () => {
       title: 'Hygiene Campaign',
       description: 'Spreading awareness about personal hygiene, handwashing, and cleanliness through workshops in rural communities.',
       link: '/work/health/hygiene-campaign',
+      icon: <Hand className="w-10 h-10 text-amber-600 mb-4 mx-auto" />,
     },
     {
       title: 'Yoga',
       description: 'Encouraging daily wellness through yoga sessions that promote mental and physical well-being.',
       link: '/work/health/yoga',
+      icon: <StretchHorizontal className="w-10 h-10 text-amber-600 mb-4 mx-auto" />,
     },
   ];
 
@@ -30,6 +33,7 @@ const HealthPage = () => {
               key={index}
               className="w-full sm:w-[300px] bg-white border border-amber-200 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow hover:bg-amber-100"
             >
+              {program.icon}
               <h3 className="text-xl font-semibold text-amber-800 mb-2 text-center">{program.title}</h3>
               <p className="text-gray-700 text-center">{program.description}</p>
             </a>

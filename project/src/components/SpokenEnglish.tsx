@@ -89,7 +89,10 @@ const SpokenEnglish: React.FC = () => {
       <div style={{ paddingTop: '2rem' }}>
         <div style={galleryStyle}>
           {[
-            '/images/Spoken-English/WhatsApp Image 2025-04-20 at 21,16,41_55c34e9b-Picsart-AiImageEnhancer.jpg',
+            '/images/Spoken-English/1.jpg',
+            '/images/Spoken-English/2.jpg',
+            '/images/Spoken-English/3.jpg',
+            '/images/Spoken-English/4.jpg',
           ].map((src, i) => (
             <img
               key={i}

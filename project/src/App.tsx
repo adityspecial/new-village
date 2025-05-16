@@ -14,6 +14,7 @@ import Resources from './pages/Resources';
 import GetInvolved from './pages/GetInvolved';
 import Donate from './pages/Donate';
 import HealthPage from './components/Health';
+import GramSiri from './components/gramSiri';
 
 // About subpages
 
@@ -79,6 +80,7 @@ function App() {
             <Route path="/donate" element={<Donate />} />
              <Route path='/register' element={<Register/>} />
              <Route path='/work/health' element={<HealthPage/>} />
+             <Route path='/work/gramsiri' element={<GramSiri/>} />
             
             {/* About Subpages */}
           <Route path="/about/ourstory" element={<OurStory />} />
