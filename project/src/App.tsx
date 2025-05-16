@@ -30,6 +30,7 @@ import DigitalLiteracy from './components/Digital-Literacy';
 
 // Work -> Agriculture
 import FarmerTraining from './components/Farmer-Traning';
+import { FarmersPrograms } from './components/FarmerPrograms';
 import EkGaon from './components/Ek-Gaon';
 import Health from './components/Health-Hyegine';
 import Yoga from './components/Yoga';
@@ -110,7 +111,7 @@ function App() {
             <Route path="/work/livelihood" element={<RuralEmpowerment />} />
             {/* Work - Agriculture */}
             <Route path="/work/agriculture/farmer-training" element={<FarmerTraining />} />
-              {/*<Route path="/work/agriculture/soil-health" element={<SoilHealth />} />*/}
+              <Route path="/work/agriculture/farmers-field-school" element={<FarmersPrograms />} />
  
             {/* Work - Environment */}
             <Route path="/work/gramsiri/kreedotsava" element={<Kreedotsava />} />
@@ -127,9 +128,6 @@ function App() {
             <Route path="/impact/gallery" element={<GalleryPage />} />
             <Route path="/impact/share" element={<ShareExperiences />} />
             <Route path="/get-involved/internships" element={<InternshipPage />} />
-          
-
-
 
           </Routes>
         </main>

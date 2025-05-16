@@ -85,7 +85,7 @@ const Navbar = () => {
           path: '/work/agriculture',
           children: [
             { name: 'Farmer Training', path: '/work/agriculture/farmer-training' },
-            { name: 'Soil Health', path: '/work/agriculture/soil' }
+            { name: 'Farmers Field School', path: '/work/agriculture/farmers-field-school' }
           ]
         },
         { name: 'Environment', path: '/work/environment' },

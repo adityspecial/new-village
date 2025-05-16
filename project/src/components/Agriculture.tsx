@@ -32,10 +32,10 @@ const AgricultureOverview = () => {
     // },
     {
       icon: TreePine,
-      title: 'Ek Gaon Ek Jangal',
+      title: 'Farmers Field School',
       description:
-        'Reviving local ecosystems through community-led afforestation. Each village adopts a green patch—nurtured and protected collectively.',
-      link: '/work/agriculture/ek-gaon-ek-jangal',
+        'An innovative learning initiative designed to connect children with progressive farming practices.',
+      link: '/work/agriculture/farmers-field-school',
     },
   ];
 
@@ -48,7 +48,7 @@ const AgricultureOverview = () => {
         <p className="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
           Discover our grassroots programs that uplift farmers and regenerate the environment.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto justify-items-center">
           {sections.map((section, index) => (
             <AgriSection key={index} {...section} />
           ))}
