@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import { Star, Image, Share } from 'lucide-react';
+import { Star, Image, Share, ActivitySquare } from 'lucide-react';
 
 const ImpactSection = ({ icon: Icon, title, description, link }: any) => (
   <Link to={link} className="block h-full">
@@ -31,7 +31,14 @@ const ImpactOverview = () => {
       title: 'Share Experience',
       description: 'Share your experience with our initiatives.',
       link: '/impact/share'
+    },
+    {
+      icon: ActivitySquare,
+      title: 'Activities',
+      description: 'Stay up to date on what is happens at KIF',
+      link: '/impact/activities'
     }
+
   ];
 
   return (
