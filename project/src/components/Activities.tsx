@@ -1,11 +1,10 @@
 import React from 'react';
-import { Calendar, CalendarDays, Clock, MapPin, Tag, FileText } from 'lucide-react';
+import { Calendar, CalendarDays, FileText } from 'lucide-react';
 
 export interface Activity {
   title: string;
   date: string;
   description: string;
-  category?: string;
   image?: string;
   documentLink?: {
     url: string;
@@ -19,7 +18,6 @@ export const activities: Activity[] = [
     date: "May 11, 2025",
     description:
       "On 11th May 2025, Karnataka Incubation Foundation (KIF) conducted a tutor selection test for the Akshar Prabhavam initiative at Adarsh Balika School. A total of 29 enthusiastic candidates participated in the test, aiming to become tutors who will support children in their academic and personal growth. The test focused on evaluating candidates' subject knowledge, communication skills, and their commitment to working with rural students. KIF follows a standard and structured process to ensure the selection of high-quality tutors. This includes a written test, personal interviews, and training sessions before final deployment. The process is designed to identify individuals who are not only academically sound but also compassionate and capable of mentoring students in a village setting. The commitment to quality ensures that the children enrolled in Akshar Prabhavam receive consistent and impactful guidance throughout the year.",
-    category: "Community",
     image: "/images/activities/Interview.jpg",
     documentLink: {
       url: "/publicationDocs/interview.pdf",
@@ -49,15 +47,6 @@ const ActivityCard: React.FC<{ activity: Activity }> = ({ activity }) => {
             <CalendarDays size={16} className="mr-2 text-amber-500" />
             <span>{activity.date}</span>
           </div>
-
-          {activity.category && (
-            <div className="flex items-center">
-              <Tag size={16} className="mr-2 text-amber-500" />
-              <span className="text-xs px-2 py-1 bg-amber-100 text-amber-800 rounded-full">
-                {activity.category}
-              </span>
-            </div>
-          )}
         </div>
 
         <p className="mt-4 text-gray-700">{activity.description}</p>
