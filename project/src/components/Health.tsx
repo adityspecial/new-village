@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Hand, StretchHorizontal } from 'lucide-react'; // Import icons
 
 const HealthPage = () => {
@@ -28,15 +29,15 @@ const HealthPage = () => {
 
         <div className="flex flex-wrap justify-center gap-8">
           {healthPrograms.map((program, index) => (
-            <a
-              href={program.link}
+            <Link
+              to={program.link}
               key={index}
               className="w-full sm:w-[300px] bg-white border border-amber-200 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow hover:bg-amber-100"
             >
               {program.icon}
               <h3 className="text-xl font-semibold text-amber-800 mb-2 text-center">{program.title}</h3>
               <p className="text-gray-700 text-center">{program.description}</p>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
