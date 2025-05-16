@@ -7,7 +7,7 @@ const testimonials = [
     id: 1,
     name: 'Varshini Hittalmani',
     role: 'Student',
-    image: '/Images/SuccessStories/7 (1).jpeg',
+    image: '/images/SuccessStories/7 (1).jpeg',
     quote:
       "I am Varshini, a girl from Javoor, and my childhood was filled with tragedy. My father, due to personal reasons, took my mother's life and left us shattered...",
     link: 'impact/stories',
@@ -16,7 +16,7 @@ const testimonials = [
     id: 2,
     name: 'Vatsala Madiwalar',
     role: 'Mentor',
-    image: '/Images/SuccessStories/2.jpg',
+    image: '/images/SuccessStories/2.jpg',
     quote:
       "Before I became a mentor at Akshar Kendra, I believed that parents mainly focused on their children’s exam results. Given Akshar Kendra’s emphasis on value-based education, I wasn’t sure if parents would buy into...",
     link: 'impact/stories',
@@ -25,7 +25,7 @@ const testimonials = [
     id: 3,
     name: 'Prasanna Kumar',
     role: 'Volunteer',
-    image: '/images/Volunteers/Prasanna.jpg',
+    image: '/images/volunteers/Prasanna.jpg',
     quote:
       "The educational initiatives have brought modern teaching methods to our village school. Our students now have access to quality education while staying connected to their roots. Volunteering here has been a rewarding experience.",
     link: 'get-involved/volunteer',
