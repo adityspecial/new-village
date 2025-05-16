@@ -78,7 +78,7 @@ function App() {
             <Route path="/get-involved" element={<GetInvolved />} />
             <Route path="/donate" element={<Donate />} />
              <Route path='/register' element={<Register/>} />
-             <Route path='/work/health' element={<Health/>} />
+             <Route path='/work/health' element={<HealthPage/>} />
             
             {/* About Subpages */}
           <Route path="/about/ourstory" element={<OurStory />} />
