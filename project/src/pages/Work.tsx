@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import { Book, Plane as Plant, Leaf, Heart, Briefcase, Home, Users, MapPin } from 'lucide-react';
+import { Book, Sprout, Leaf, Heart, Briefcase, Trophy, Users, MapPin } from 'lucide-react';
 
 const WorkSection = ({ icon: Icon, title, description, link }: any) => (
   <Link to={link} className="block">
@@ -21,7 +21,7 @@ const WorkOverview = () => {
       link: '/work/education'
     },
     {
-      icon: Plant,
+      icon: Sprout,
       title: 'Agriculture',
       description: 'Supporting sustainable farming practices and farmer training initiatives.',
       link: '/work/agriculture'
@@ -29,7 +29,7 @@ const WorkOverview = () => {
     {
       icon: Leaf,
       title: 'Environment',
-      description: 'Promoting environmental conservation through Ek Gaon - Ek Jangal.',
+      description: 'Promoting environmental conservation through Gram Vana intiatives.',
       link: '/work/environment'
     },
     {
@@ -37,6 +37,12 @@ const WorkOverview = () => {
       title: 'Health',
       description: 'Improving rural healthcare access through the Drishti program.',
       link: '/work/health'
+    },
+    {
+      icon: Trophy,
+      title: 'Gram Siri',
+      description: 'Empowering rural communities through a comprehensive village development program.',
+      link: '/work/gramsiri'
     },
     {
       icon: Briefcase,

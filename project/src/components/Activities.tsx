@@ -12,32 +12,18 @@ export interface Activity {
   };
 }
 
-export const activities: Activity[] = [
-  {
-    title: "Tutor Interview and Test",
-    date: "May 11, 2025",
-    description:
-      "On 11th May 2025, Karnataka Incubation Foundation (KIF) conducted a tutor selection test for the Akshar Prabhavam initiative at Adarsh Balika School. A total of 29 enthusiastic candidates participated in the test, aiming to become tutors who will support children in their academic and personal growth. The test focused on evaluating candidates' subject knowledge, communication skills, and their commitment to working with rural students. KIF follows a standard and structured process to ensure the selection of high-quality tutors. This includes a written test, personal interviews, and training sessions before final deployment. The process is designed to identify individuals who are not only academically sound but also compassionate and capable of mentoring students in a village setting. The commitment to quality ensures that the children enrolled in Akshar Prabhavam receive consistent and impactful guidance throughout the year.",
-    image: "/images/activities/Interview.jpg",
-    documentLink: {
-      url: "/publicationDocs/interview.pdf",
-      label: "View Interview Report",
-    },
-  },
-];
-
 const ActivityCard: React.FC<{ activity: Activity }> = ({ activity }) => {
   return (
     <div className="bg-white shadow-md rounded-xl overflow-hidden border-l-4 border-amber-500 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
       {activity.image && (
-  <div className="w-full h-48 overflow-hidden">
-    <img
-      src={activity.image}
-      alt={activity.title}
-      className="w-full h-full object-contain"
-    />
-  </div>
-)}
+        <div className="w-full h-48 overflow-hidden">
+          <img
+            src={activity.image}
+            alt={activity.title}
+            className="w-full h-full object-contain"
+          />
+        </div>
+      )}
 
       <div className="p-6">
         <h3 className="text-xl font-semibold text-amber-800">{activity.title}</h3>
@@ -68,11 +54,24 @@ const ActivityCard: React.FC<{ activity: Activity }> = ({ activity }) => {
 };
 
 const Activities = () => {
+  const activities: Activity[] = [
+    {
+      title: "Tutor Interview and Test",
+      date: "May 11, 2025",
+      description:
+        "On 11th May 2025, Karnataka Incubation Foundation (KIF) conducted a tutor selection test for the Akshar Prabhavam initiative at Adarsh Balika School. A total of 29 enthusiastic candidates participated in the test, aiming to become tutors who will support children in their academic and personal growth. The test focused on evaluating candidates' subject knowledge, communication skills, and their commitment to working with rural students. KIF follows a standard and structured process to ensure the selection of high-quality tutors. This includes a written test, personal interviews, and training sessions before final deployment. The process is designed to identify individuals who are not only academically sound but also compassionate and capable of mentoring students in a village setting. The commitment to quality ensures that the children enrolled in Akshar Prabhavam receive consistent and impactful guidance throughout the year.",
+      image: "/images/activities/Interview.jpg",
+      documentLink: {
+        url: "/publicationDocs/interview.pdf",
+        label: "View Interview Report",
+      },
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-amber-50 py-12 px-4">
+    <div className="min-h-screen bg-amber-100 pattern-bg-yellow py-12 px-4">
       <div className="max-w-3xl mx-auto">
         <div className="flex items-center justify-center mb-8">
-          <Calendar className="text-amber-600 mr-3" size={32} />
           <h2 className="text-4xl font-bold text-center text-amber-900">Our Activities</h2>
         </div>
 

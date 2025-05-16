@@ -16,8 +16,8 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
   };
 
   return (
-    <div className="py-12 bg-white">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Gallery</h2>
+    <div className="py-12 bg-amber-100 pattern-bg-yellow">
+      <h2 className="text-3xl font-bold text-center text-amber-800 mb-8">Gallery</h2>
       
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 px-4 max-w-7xl mx-auto">
         {images.slice(0, 30).map((url, index) => (

@@ -23,7 +23,7 @@ const ShareExperiences = () => {
   };
 
   return (
-    <div className="min-h-screen pattern-bg-yellow flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen pattern-bg-yellow flex items-center justify-center px-4 py-12 bg-amber-100">
     <div className="max-w-3xl mx-auto mt-12 p-6 bg-white shadow-lg rounded-lg">
       <h2 className="text-3xl font-bold text-amber-900 mb-6 text-center">Share Your Experience</h2>
       {submitted && (

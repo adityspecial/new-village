@@ -182,7 +182,7 @@ const ModelVillage: React.FC = () => {
               className="relative max-w-full max-h-[90vh] w-full sm:max-w-4xl rounded-lg overflow-hidden shadow-2xl bg-black"
             >
               <button
-                className="absolute top-2 right-2 text-white text-5xl sm:text-6xl hover:text-amber-400 transition-colors z-30"
+                className="absolute top-2 right-2 text-amber-900 text-5xl sm:text-6xl hover:text-amber-400 transition-colors z-30"
                 onClick={() => setIsLightboxOpen(false)}
                 aria-label="Close"
               >
@@ -197,14 +197,14 @@ const ModelVillage: React.FC = () => {
               />
 
               <button
-                className="absolute left-1 top-1/2 -translate-y-1/2 text-white text-7xl sm:text-9xl hover:text-amber-400 transition-colors z-30 px-2"
+                className="absolute left-1 top-1/2 -translate-y-1/2 text-amber-900 text-7xl sm:text-9xl hover:text-amber-400 transition-colors z-30 px-2"
                 onClick={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
                 aria-label="Previous Image"
               >
                 ‹
               </button>
               <button
-                className="absolute right-1 top-1/2 -translate-y-1/2 text-white text-7xl sm:text-9xl hover:text-amber-400 transition-colors z-30 px-2"
+                className="absolute right-1 top-1/2 -translate-y-1/2 text-amber-900 text-7xl sm:text-9xl hover:text-amber-400 transition-colors z-30 px-2"
                 onClick={() => setPhotoIndex((photoIndex + 1) % images.length)}
                 aria-label="Next Image"
               >

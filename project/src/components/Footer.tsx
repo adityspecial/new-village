@@ -127,7 +127,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="mt-10 pt-6 border-t border-amber-700 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-amber-200 text-center sm:text-left">
-            © {new Date().getFullYear()} KIF. All rights reserved.
+            © {new Date().getFullYear()} Karnataka Incubation Foundation. All rights reserved.
           </p>
           <button
             onClick={scrollToTop}

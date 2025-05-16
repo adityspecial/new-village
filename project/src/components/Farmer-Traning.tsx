@@ -6,19 +6,19 @@ const FarmerTraining: React.FC = () => {
       title: "Empowering Farmers",
       subtitle: "Why Farmer Training?",
       text: "Equipping farmers with knowledge, confidence, and sustainable techniques to improve yield and income.",
-      image: "/images/Farmer-Training/IMG20240602161413 (1).jpg"
+      image: "/images/Farmer-Training/1.jpg"
     },
     {
       title: "Sustainable Practices",
       subtitle: "Farming Techniques",
       text: "Organic farming, soil health management, and integrated pest control to boost productivity.",
-      image: "/images/Farmer-Training/1.jpg"
+      image: "/images/Farmer-Training/2.png"
     },
     {
       title: "Smart Farming",
       subtitle: "Business Skills",
       text: "Learn record keeping, market analysis, and use of government schemes for agri-entrepreneurship.",
-      image: "/images/Farmer-Training/2.png"
+      image: "/images/Farmer-Training/3.jpg"
     }
   ];
 
@@ -40,117 +40,93 @@ const FarmerTraining: React.FC = () => {
   };
 
   return (
-    <div style={{ fontFamily: "'Segoe UI', sans-serif", color: "#333" ,backgroundImage: 'url("/images/low-contrast-linen.png")',backgroundColor: '#DBF2DE'
-    }}>
+    <div className="font-sans text-gray-800 bg-[#DBF2DE] bg-[url('/images/low-contrast-linen.png')]">
       {/* Slider Section */}
-      <section style={{
-        position: 'relative',
-        height: '600px',
-        overflow: 'hidden'
-      }}>
+      <section className="relative h-[70vh] md:h-[600px] overflow-hidden">
         <img
           src={slides[currentSlide].image}
           alt={slides[currentSlide].title}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            filter: 'brightness(70%)'
-          }}
+          className="w-full h-full object-cover brightness-70"
         />
-        <div style={{
-          position: 'absolute',
-          bottom: 0,
-          width: '100%',
-          padding: '30px',
-          backgroundColor: 'rgba(0, 0, 0, 0.6)',
-          color: 'white',
-
-        }}>
-          <h2 style={{ fontSize: '1.8rem', margin: 0 }}>{slides[currentSlide].title}</h2>
-          <h3 style={{ fontSize: '1.2rem', margin: '10px 0' }}>{slides[currentSlide].subtitle}</h3>
-          <p style={{ fontSize: '1rem' }}>{slides[currentSlide].text}</p>
+        
+        <div className="absolute bottom-0 w-full p-4 md:p-8 bg-black/60 text-white">
+          <h2 className="text-xl md:text-3xl font-bold mb-2">{slides[currentSlide].title}</h2>
+          <h3 className="text-lg md:text-xl mb-2">{slides[currentSlide].subtitle}</h3>
+          <p className="text-sm md:text-base">{slides[currentSlide].text}</p>
         </div>
-        {/* Arrows */}
-        <button onClick={handlePrev} style={{
-          position: 'absolute',
-          top: '50%',
-          left: '20px',
-          transform: 'translateY(-50%)',
-          background: 'rgba(255,255,255,0.6)',
-          border: 'none',
-          padding: '10px',
-          borderRadius: '50%',
-          cursor: 'pointer'
-        }}>❮</button>
 
-        <button onClick={handleNext} style={{
-          position: 'absolute',
-          top: '50%',
-          right: '20px',
-          transform: 'translateY(-50%)',
-          background: 'rgba(255,255,255,0.6)',
-          border: 'none',
-          padding: '10px',
-          borderRadius: '50%',
-          cursor: 'pointer'
-        }}>❯</button>
+        {/* Navigation Arrows */}
+        <button 
+          onClick={handlePrev}
+          className="absolute top-1/2 left-2 md:left-4 -translate-y-1/2 bg-white/60 p-2 rounded-full hover:bg-white/80 transition-all"
+        >
+          ❮
+        </button>
+        
+        <button 
+          onClick={handleNext}
+          className="absolute top-1/2 right-2 md:right-4 -translate-y-1/2 bg-white/60 p-2 rounded-full hover:bg-white/80 transition-all"
+        >
+          ❯
+        </button>
       </section>
 
       {/* Info Section */}
-      <section style={{
-        maxWidth: '900px',
-        margin: '50px auto',
-        padding: '20px',
-        background: '#f9f9f9',
-        borderRadius: '8px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-        
-     
-      }}>
-        <div style={{ marginBottom: '30px', }}>
-          <h2 style={{ color: '#276749', fontSize: '1.5rem', marginBottom: '10px' }}>Why Farmers’ Training?</h2>
-          <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>
+      <section className="container mx-auto px-4 py-8 md:py-12">
+        <div className="bg-white rounded-lg shadow-md p-6 md:p-8 mb-8">
+          <h2 className="text-green-800 text-xl md:text-2xl font-bold mb-4">Why Farmers’ Training?</h2>
+          <p className="text-sm md:text-base leading-relaxed mb-4">
             At Karnataka Incubation Foundation (KIF), we believe that empowered farmers can change the future of rural India. Our training programs are designed to equip farmers with:
           </p>
-          <ul style={{ padding: 0, listStyleType: 'none', fontSize: '1rem', lineHeight: '1.6' }}>
-            <li>- Practical knowledge they can apply on their farms</li>
-            <li>- Affordable and sustainable techniques to improve yield and income</li>
-            <li>- Confidence to handle unexpected farming challenges</li>
-            <li>- Awareness of market trends, schemes, and entrepreneurship opportunities</li>
+          <ul className="space-y-2 text-sm md:text-base">
+            <li className="flex items-start">
+              <span className="mr-2">-</span>
+              Practical knowledge they can apply on their farms
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">-</span>
+              Affordable and sustainable techniques to improve yield and income
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">-</span>
+              Confidence to handle unexpected farming challenges
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">-</span>
+              Awareness of market trends, schemes, and entrepreneurship opportunities
+            </li>
           </ul>
         </div>
 
-        <div>
-          <h2 style={{ color: '#276749', fontSize: '1.5rem', marginBottom: '10px' }}>What We Offer</h2>
-          <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>
+        <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
+          <h2 className="text-green-800 text-xl md:text-2xl font-bold mb-4">What We Offer</h2>
+          <p className="text-sm md:text-base leading-relaxed mb-4">
             We conduct one-day training programs in villages and talukas to equip farmers and rural youth with practical skills in:
           </p>
-          <ol style={{ padding: 0, listStyleType: 'none', fontSize: '1rem', lineHeight: '1.6' }}>
-            <li><strong>-Farming Techniques:</strong> Organic farming, soil health, pest control, seed and water management</li>
-            <li><strong>-Livelihood Options:</strong> Poultry, sheep-goat rearing, and sericulture</li>
-            <li><strong>-Business Skills:</strong> Record keeping, profit planning, market linkages, and government schemes</li>
+          <ol className="space-y-3 text-sm md:text-base">
+            <li>
+              <strong className="text-green-700">Farming Techniques: </strong>
+              Organic farming, soil health, pest control, seed and water management
+            </li>
+            <li>
+              <strong className="text-green-700">Livelihood Options: </strong>
+              Poultry, sheep-goat rearing, and sericulture
+            </li>
+            <li>
+              <strong className="text-green-700">Business Skills: </strong>
+              Record keeping, profit planning, market linkages, and government schemes
+            </li>
           </ol>
         </div>
       </section>
 
       {/* Call to Action */}
-      <div style={{
-        textAlign: 'center',
-        padding: '40px 20px',
-        background: '#DBF2DE',
-        backgroundImage: 'url("/images/low-contrast-linen.png")'
-      }}>
-        <a href="/register" style={{
-          display: 'inline-block',
-          padding: '15px 30px',
-          background: '#276749',
-          color: 'white',
-          textDecoration: 'none',
-          borderRadius: '30px',
-          fontWeight: 600,
-          boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-        }}>
+      <div className="text-center py-8 md:py-12 bg-[#DBF2DE] bg-[url('/images/low-contrast-linen.png')]">
+        <a 
+          href="/register"
+          className="inline-block px-6 py-3 md:px-8 md:py-4 bg-green-800 text-white rounded-full font-semibold 
+                   hover:bg-green-700 transition-colors shadow-lg hover:shadow-md"
+        >
           Register for Training
         </a>
       </div>
