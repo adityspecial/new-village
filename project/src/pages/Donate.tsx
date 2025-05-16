@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CreditCard, Calendar, Heart, GraduationCap } from 'lucide-react';
+import { Calendar, Heart, GraduationCap } from 'lucide-react';
 import DonationOption from '../components/DonationOption';
 import DonationModal from '../components/DonationModal';
 import { initializeRazorpay, createRazorpayOptions, DonationData } from '../components/razorpay';

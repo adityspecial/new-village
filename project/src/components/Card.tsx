@@ -7,7 +7,7 @@ interface CardProps {
   borderSize?: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, content, imageSrc, borderSize = "2" }) => {
+const Card: React.FC<CardProps> = ({ title, content, imageSrc}) => {
   const [cardHeight, setCardHeight] = useState('42rem');
 
   useEffect(() => {

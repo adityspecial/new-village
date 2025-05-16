@@ -12,13 +12,13 @@ const FarmerTraining: React.FC = () => {
       title: "Sustainable Practices",
       subtitle: "Farming Techniques",
       text: "Organic farming, soil health management, and integrated pest control to boost productivity.",
-      image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+      image: "/images/Farmer-Training/1.jpg"
     },
     {
       title: "Smart Farming",
       subtitle: "Business Skills",
       text: "Learn record keeping, market analysis, and use of government schemes for agri-entrepreneurship.",
-      image: "https://images.unsplash.com/photo-1550565118-3a14e8d0386f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+      image: "/images/Farmer-Training/2.png"
     }
   ];
 

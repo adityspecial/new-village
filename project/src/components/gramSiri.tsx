@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Handshake, Trophy } from 'lucide-react'; // Import relevant icons
 
