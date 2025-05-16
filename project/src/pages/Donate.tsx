@@ -1,193 +1,236 @@
+import React, { useState } from 'react';
 import { CreditCard, Calendar, Heart, GraduationCap } from 'lucide-react';
-import { useState } from 'react';
+import DonationOption from '../components/DonationOption';
+import DonationModal from '../components/DonationModal';
+import { initializeRazorpay, createRazorpayOptions, DonationData } from '../components/razorpay';
+import { validateDonationForm } from '../components/validation';
 
-const DonationOption = ({
-  icon: Icon,
-  title,
-  description,
-  amount,
-  frequency,
-  onDonate,
-  isEditable,
-  value,
-  onChange,
-}: any) => (
-  <div className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between h-full">
-    <div>
-      <Icon className="w-12 h-12 text-amber-600 mb-4" />
-      <h3 className="text-xl font-semibold text-amber-900 mb-2">{title}</h3>
-      <p className="text-gray-600 mb-4">{description}</p>
-    </div>
-    <div className="flex justify-between items-center mb-4">
-      {isEditable ? (
-        <input
-          type="number"
-          value={value}
-          onChange={onChange}
-          placeholder="Enter amount"
-          className="p-2 border border-gray-300 rounded-md w-1/2 mb-2"
-        />
-      ) : (
-        <span className="text-2xl font-bold text-amber-900">₹{amount}</span>
-      )}
-      <span className="text-gray-500">{frequency}</span>
-    </div>
-    <button
-      className="w-full mt-4 bg-amber-600 text-white py-2 px-4 rounded-md hover:bg-amber-700 transition-colors"
-      onClick={onDonate}
-    >
-      Donate Now
-    </button>
-  </div>
-);
+const RAZORPAY_KEY_ID = 'rzp_live_6CfortcpYYDlFy'; // Use your Razorpay key
 
-const Donate = () => {
-  const [oneTimeAmount, setOneTimeAmount] = useState<string>('');
+const Donate: React.FC = () => {
+  const [oneTimeAmount, setOneTimeAmount] = useState('');
   const [showModal, setShowModal] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<any>(null);
+  const [selectedOption, setSelectedOption] = useState<DonationData | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     address: '',
     pincode: '',
     pan: '',
     email: '',
+    phone: '',
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const donationOptions = [
-    {
-      icon: Heart,
-      title: 'One-Time Donation',
-      description: 'Make a one-time contribution to support our initiatives.',
-      frequency: 'One-time',
-      amount: Number(oneTimeAmount) || 0,
-      isEditable: true,
-      value: oneTimeAmount,
-      onChange: (e: any) => setOneTimeAmount(e.target.value),
-    },
-    {
-      icon: Calendar,
-      title: 'Monthly Support',
-      description: 'Become a regular supporter with monthly donations.',
-      amount: 200,
-      frequency: 'Monthly',
-      planId: 'plan_OkquniarKzEEkM',
-    },
-    {
-      icon: GraduationCap,
-      title: 'Adopt a Child',
-      description: "Support a child's education for one year.",
-      amount: 3500,
-      frequency: 'Yearly',
-      planId: 'sub_QS2lYatwqzhbQ5',
-    },
-  ];
-
-  const handleDonateClick = (option: any) => {
+  const handleDonateClick = (option: DonationData) => {
     const isOneTime = !option.planId;
-    const amount = Number(oneTimeAmount);
-    if (isOneTime && amount <= 0) {
-      alert('Please enter a valid donation amount.');
-      return;
+    if (isOneTime) {
+      const numericAmount = Number(oneTimeAmount);
+      if (!oneTimeAmount || numericAmount <= 0) {
+        setErrors({
+          ...errors,
+          amount: 'Please enter a valid donation amount',
+        });
+        return;
+      } else {
+        setErrors({
+          ...errors,
+          amount: '',
+        });
+      }
     }
     setSelectedOption(option);
     setShowModal(true);
   };
 
-  const handleFormSubmit = () => {
-    const { name, address, pincode, pan, email } = formData;
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: '',
+      });
+    }
+  };
 
-    if (!name || !address || !pincode || !pan || !email) {
-      alert('Please fill all fields.');
+  const handleFormSubmit = async () => {
+    if (!selectedOption) return;
+    const isOneTime = !selectedOption.planId;
+
+    const [isValid, validationErrors] = validateDonationForm(
+      formData,
+      isOneTime,
+      oneTimeAmount
+    );
+    if (!isValid) {
+      const errorRecord: Record<string, string> = {};
+      Object.entries(validationErrors).forEach(([key, value]) => {
+        if (value !== undefined) errorRecord[key] = value;
+      });
+      setErrors(errorRecord);
       return;
     }
 
-    setShowModal(false);
-    const isOneTime = !selectedOption.planId;
-    const amount = Number(oneTimeAmount);
-
-    const razorpayOptions = {
-      key: 'rzp_live_kE54OR7LfcjQLV',
-      amount: isOneTime ? amount * 100 : undefined,
-      plan_id: selectedOption.planId,
-      currency: 'INR',
-      name: 'Karnataka Incubation Foundation',
-      description: selectedOption.title,
-      handler: function (response: any) {
-        alert(
-          `${isOneTime ? 'Payment' : 'Subscription'} successful! ID: ${
-            isOneTime ? response.razorpay_payment_id : response.razorpay_subscription_id
-          }`
+    try {
+      if (!isOneTime) {
+        // 1. Create subscription on backend
+        const response = await fetch('/api/create-subscription', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            plan_id: selectedOption.planId,
+            customer_details: {
+              name: formData.name,
+              email: formData.email,
+              phone: formData.phone,
+              notes: {
+                address: formData.address,
+                pincode: formData.pincode,
+                pan: formData.pan
+              }
+            }
+          })
+        });
+        const data = await response.json();
+        if (!data.success || !data.subscription?.id) {
+          alert('Failed to create subscription. Please try again.');
+          return;
+        }
+        // 2. Pass only subscription_id to Razorpay Checkout
+        const options = createRazorpayOptions(
+          {
+            ...selectedOption,
+            subscription_id: data.subscription.id
+          },
+          formData,
+          RAZORPAY_KEY_ID
         );
-      },
-      prefill: {
-        name,
-        email,
-        contact: '',
-      },
-      notes: {
-        donation_type: selectedOption.title,
-        address,
-        pincode,
-        pan,
-      },
-      theme: {
-        color: '#FFBF00',
-      },
-    };
+        console.log('Razorpay options:', options);
+        await initializeRazorpay(options);
+        setShowModal(false);
+        return;
+      }
 
-    const rzp = new (window as any).Razorpay(razorpayOptions);
-    rzp.open();
+      // One-time payment
+      const options = createRazorpayOptions(
+        {
+          ...selectedOption,
+          amount: Number(oneTimeAmount),
+        },
+        formData,
+        RAZORPAY_KEY_ID
+      );
+      await initializeRazorpay(options);
+      setShowModal(false);
+      setOneTimeAmount('');
+    } catch (error) {
+      console.error('Payment initialization failed:', error);
+      alert('Payment initialization failed. Check console for details.');
+    }
   };
 
+  const donationOptions = [
+    {
+      icon: Heart,
+      title: 'One-Time Donation',
+      description: 'Make a one-time contribution to support our initiatives for rural development.',
+      frequency: 'One-time',
+      amount: Number(oneTimeAmount) || 0,
+      isEditable: true,
+      value: oneTimeAmount,
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+        setOneTimeAmount(e.target.value);
+        if (errors.amount) setErrors({ ...errors, amount: '' });
+      },
+      onDonate: () =>
+        handleDonateClick({
+          title: 'One-Time Donation',
+          amount: Number(oneTimeAmount),
+          frequency: 'One-time',
+        }),
+    },
+    {
+      icon: Calendar,
+      title: 'Monthly Support',
+      description: 'Become a regular supporter with monthly donations to sustain our programs.',
+      amount: 200,
+      frequency: 'Monthly',
+      planId: 'plan_QS2gghK7JzEJ71',
+      onDonate: () =>
+        handleDonateClick({
+          title: 'Monthly Support',
+          amount: 200,
+          frequency: 'Monthly',
+          planId: 'plan_QS2gghK7JzEJ71',
+        }),
+    },
+    {
+      icon: GraduationCap,
+      title: 'Adopt a Child',
+      description: "Support a child's education and development for one full year.",
+      amount: 3500,
+      frequency: 'Yearly',
+      planId: 'plan_QS2jRbob44CJIo',
+      onDonate: () =>
+        handleDonateClick({
+          title: 'Adopt a Child',
+          amount: 3500,
+          frequency: 'Yearly',
+          planId: 'plan_QS2jRbob44CJIo',
+        }),
+    },
+  ];
+
   return (
-    <div className="py-12 min-h-screen flex flex-col pattern-bg-yellow">
+    <div className="py-12 min-h-screen flex flex-col">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow">
-        <h1 className="text-4xl font-bold text-amber-900 mb-8 text-center">Support Our Cause</h1>
-        <p className="text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto">
-          Your contribution helps us continue our work in rural development and community empowerment.
-        </p>
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-amber-900 mb-4">Support Our Cause</h1>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            Your contribution helps us continue our work in rural development and community empowerment.
+            Every donation makes a difference in the lives of those we serve.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {donationOptions.map((option, index) => (
-            <DonationOption key={index} {...option} onDonate={() => handleDonateClick(option)} />
+            <DonationOption key={index} {...option} />
           ))}
         </div>
+
+        {errors.amount && (
+          <div className="text-red-500 text-center mb-6">{errors.amount}</div>
+        )}
+
+        <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 mb-12 max-w-3xl mx-auto">
+          <h3 className="text-xl font-semibold text-amber-900 mb-2">Tax Benefits</h3>
+          <p className="text-gray-700">
+            All monetary contributions to Karnataka Incubation Foundation are eligible for tax deduction 
+            under section 80G of the Income Tax Act. A receipt will be emailed to you after your donation.
+          </p>
+        </div>
       </div>
-      <p className="text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto">
-        Note: All Indian monetary contributions to KIF are eligible for tax deduction under section 80G of the Income Tax Act
-      </p>
 
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg w-full max-w-md shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-amber-900">Enter Your Details</h2>
-            <div className="space-y-3">
-              {['name', 'address', 'pincode', 'pan', 'email'].map((field) => (
-                <input
-                  key={field}
-                  type={field === 'email' ? 'email' : 'text'}
-                  placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                  className="w-full p-2 border border-gray-300 rounded-md"
-                  value={(formData as any)[field]}
-                  onChange={(e) => setFormData({ ...formData, [field]: e.target.value })}
-                />
-              ))}
-            </div>
-            <div className="mt-6 flex justify-end gap-3">
-              <button
-                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-                onClick={() => setShowModal(false)}
-              >
-                Cancel
-              </button>
-              <button
-                className="px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700"
-                onClick={handleFormSubmit}
-              >
-                Proceed to Pay
-              </button>
-            </div>
-          </div>
+        <DonationModal
+          formData={formData}
+          onFormChange={handleFormChange}
+          onSubmit={handleFormSubmit}
+          onCancel={() => setShowModal(false)}
+        />
+      )}
+
+      {Object.keys(errors).length > 0 && showModal && (
+        <div className="fixed bottom-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded z-50">
+          <p className="font-bold">Please fix the following errors:</p>
+          <ul className="list-disc pl-5">
+            {Object.values(errors).map((error, index) => (
+              error ? <li key={index}>{error}</li> : null
+            ))}
+          </ul>
         </div>
       )}
     </div>
