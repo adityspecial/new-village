@@ -115,7 +115,8 @@ const Navbar = () => {
       submenu: [
         { name: 'Success Stories', path: '/impact/stories' },
         { name: 'Gallery', path: '/impact/gallery' },
-        { name: 'Share Experience', path: '/impact/share' }
+        { name: 'Share Experience', path: '/impact/share' },
+        { name: 'Activities', path: '/impact/activities' }
       ]
     },
     {
