@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const DigitalLiteracy: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const isMobile = window.innerWidth <= 768;
+
   const galleryWrapper: React.CSSProperties = {
     maxWidth: '100%',
     overflow: 'hidden',
     paddingBottom: '2rem',
     backgroundImage: "url('/images/low-contrast-linen.png')",
   };
+
   const galleryStyle: React.CSSProperties = {
     display: 'flex',
     justifyContent: 'center',
@@ -81,17 +84,18 @@ const DigitalLiteracy: React.FC = () => {
     fontWeight: 600,
   };
 
+  const imageList = [
+    '/images/Digital-literacy/488470140_9351316421604105_2816224130122345181_n (2) (2).jpg',
+    '/images/Digital-literacy/1.jpg',
+    '/images/Digital-literacy/2.jpg',
+  ];
+
   return (
     <div style={galleryWrapper}>
       {/* Image Gallery */}
       <div style={{ paddingTop: '2rem' }}>
         <div style={galleryStyle}>
-          {[
-            '/images/Digital-literacy/488470140_9351316421604105_2816224130122345181_n (2) (2).jpg',
-            '/images/Digital-literacy/1.jpg',
-            '/images/Digital-literacy/2.jpg',
-            ,
-          ].map((src, i) => (
+          {imageList.map((src, i) => (
             <img
               key={i}
               src={src}
@@ -99,10 +103,42 @@ const DigitalLiteracy: React.FC = () => {
               style={imageStyle}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onClick={() => setSelectedImage(src)}
             />
           ))}
         </div>
       </div>
+
+      {/* Modal */}
+      {selectedImage && (
+        <div
+          onClick={() => setSelectedImage(null)}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            zIndex: 1000,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            cursor: 'zoom-out',
+          }}
+        >
+          <img
+            src={selectedImage}
+            alt="Full view"
+            style={{
+              maxWidth: '90%',
+              maxHeight: '90%',
+              borderRadius: '8px',
+              boxShadow: '0 0 20px rgba(0, 0, 0, 0.5)',
+            }}
+          />
+        </div>
+      )}
 
       {/* Main Content */}
       <div style={sectionStyle}>

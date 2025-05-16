@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const SpokenEnglish: React.FC = () => {
   const isMobile = window.innerWidth <= 768;
+  const [modalImage, setModalImage] = useState<string | null>(null); // <-- Modal image state
 
-   const galleryWrapper: React.CSSProperties = {
-      maxWidth: '100%',
-      overflow: 'hidden',
-      paddingBottom: '2rem',
-      backgroundImage: "url('/images/low-contrast-linen.png')",
-    };
+  const galleryWrapper: React.CSSProperties = {
+    maxWidth: '100%',
+    overflow: 'hidden',
+    paddingBottom: '2rem',
+    backgroundImage: "url('/images/low-contrast-linen.png')",
+  };
 
   const galleryStyle: React.CSSProperties = {
     display: 'flex',
@@ -36,6 +37,14 @@ const SpokenEnglish: React.FC = () => {
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLImageElement>) => {
     if (!isMobile) e.currentTarget.style.width = '10%';
+  };
+
+  const handleImageClick = (src: string) => {
+    setModalImage(src);
+  };
+
+  const handleModalClose = () => {
+    setModalImage(null);
   };
 
   const sectionStyle: React.CSSProperties = {
@@ -101,6 +110,7 @@ const SpokenEnglish: React.FC = () => {
               style={imageStyle}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onClick={() => handleImageClick(src)} // <-- Click opens modal
             />
           ))}
         </div>
@@ -134,7 +144,7 @@ const SpokenEnglish: React.FC = () => {
             <li><strong>Confidence Boost:</strong> Language learning is helping them gain self-assurance.</li>
             <li><strong>Bridging Gaps:</strong> Aims to ensure they don't miss opportunities due to lack of language skills.</li>
             <li><strong>Sunday Sessions:</strong> NRIs and IT sector volunteers conduct online English classes every Sunday.</li>
-        </ul>
+          </ul>
         </div>
 
         <div style={{ ...cardStyle, background: '#fde68a', textAlign: 'center' }}>
@@ -143,6 +153,37 @@ const SpokenEnglish: React.FC = () => {
           </p>
         </div>
       </div>
+
+      {/* Modal */}
+      {modalImage && (
+        <div
+          onClick={handleModalClose}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            zIndex: 9999,
+            width: '100vw',
+            height: '100vh',
+            background: 'rgba(0, 0, 0, 0.8)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <img
+            src={modalImage}
+            alt="Modal"
+            style={{
+              maxHeight: '90%',
+              maxWidth: '90%',
+              borderRadius: '10px',
+              border: '4px solid white',
+              boxShadow: '0 0 20px rgba(255, 255, 255, 0.5)',
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 };

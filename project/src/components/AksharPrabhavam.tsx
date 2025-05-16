@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const AksharPrabhavam: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   const isMobile = window.innerWidth <= 768;
+
   const galleryWrapper: React.CSSProperties = {
     maxWidth: '100%',
     overflow: 'hidden',
     paddingBottom: '2rem',
-    backgroundImage:  "url('/images/low-contrast-linen.png')",
+    backgroundImage: "url('/images/low-contrast-linen.png')",
   };
+
   const galleryStyle: React.CSSProperties = {
     display: 'flex',
     justifyContent: 'center',
@@ -82,6 +86,32 @@ const AksharPrabhavam: React.FC = () => {
     fontWeight: 600,
   };
 
+  const modalOverlay: React.CSSProperties = {
+    position: 'fixed',
+    top: 0, left: 0, right: 0, bottom: 0,
+    backgroundColor: 'rgba(0,0,0,0.7)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1000,
+  };
+
+  const modalImage: React.CSSProperties = {
+    maxWidth: '90%',
+    maxHeight: '90%',
+    borderRadius: '12px',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
+  };
+
+  const closeButton: React.CSSProperties = {
+    position: 'absolute',
+    top: '1rem',
+    right: '1rem',
+    fontSize: '2rem',
+    color: 'white',
+    cursor: 'pointer',
+  };
+
   return (
     <div style={galleryWrapper}>
       {/* Image Gallery */}
@@ -95,7 +125,6 @@ const AksharPrabhavam: React.FC = () => {
             '/images/AksharPrabhavam/387185202_6598688340200274_6226190033616506687_n-Picsart-AiImageEnhancer.jpg',
             '/images/AksharPrabhavam/342052825_906915237223666_2764767502946802631_n-Picsart-AiImageEnhancer.jpg',
             '/images/AksharPrabhavam/387165247_6598687183533723_8856090737025899650_n-Picsart-AiImageEnhancer.jpg'
-        
           ].map((src, i) => (
             <img
               key={i}
@@ -104,10 +133,19 @@ const AksharPrabhavam: React.FC = () => {
               style={imageStyle}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onClick={() => setSelectedImage(src)}
             />
           ))}
         </div>
       </div>
+
+      {/* Modal */}
+      {selectedImage && (
+        <div style={modalOverlay} onClick={() => setSelectedImage(null)}>
+          <span style={closeButton} onClick={() => setSelectedImage(null)}>&times;</span>
+          <img src={selectedImage} alt="Enlarged" style={modalImage} />
+        </div>
+      )}
 
       {/* Main Content */}
       <div style={sectionStyle}>
