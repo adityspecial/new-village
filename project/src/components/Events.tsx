@@ -18,7 +18,7 @@ const events: Event[] = [
 
 const Events = () => {
   return (
-    <div className="min-h-screen pattern-bg-yellow py-12 px-4">
+    <div className="min-h-screen pattern-bg-yellow py-12 px-4 bg-amber-200">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-4xl font-bold text-center text-amber-900 mb-10">
           Upcoming Events

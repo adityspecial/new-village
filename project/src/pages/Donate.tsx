@@ -185,7 +185,7 @@ const Donate: React.FC = () => {
   ];
 
   return (
-    <div className="py-12 min-h-screen flex flex-col">
+    <div className="py-12 min-h-screen flex flex-col bg-amber-200 pattern-bg-yellow">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-amber-900 mb-4">Support Our Cause</h1>
