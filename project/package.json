@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-  "build": "vite build &&  cp .htasccess dist/.htaccess",
+    "build": "vite build &&  cp .htasccess dist/.htaccess",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -15,6 +15,7 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "framer-motion": "^11.0.8",
+    "i": "^0.3.7",
     "lucide-react": "^0.344.0",
     "razorpay": "^2.9.6",
     "react": "^18.3.1",
