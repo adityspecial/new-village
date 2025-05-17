@@ -29,7 +29,7 @@ const programData: ProgramItem[] = [
     title: "Gram Siri",
     description: "Under Grama Siri, KIF hosts Kreedotsava, a village sports fest for all ages, and Pada Pooja, where children honor parents—fostering unity, joy, and values.",
     imageUrl: "/images/Programs/GS.JPG",
-    linkUrl: "/work/gram-siri"
+    linkUrl: "/work/gramsiri"
   },
   {
     id: 4,
