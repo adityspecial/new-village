@@ -176,6 +176,20 @@ const Donate: React.FC = () => {
         planId: 'plan_QS2gghK7JzEJ71',
       }),
     },
+     {
+      icon: Calendar,
+      title: 'Monthly Support',
+      description: 'Sustain our programs with regular monthly donations',
+      amount: 500,
+      frequency: 'Monthly',
+      planId: 'plan_QS2ir7wm18GQcC',
+      onDonate: () => handleDonateClick({
+        title: 'Monthly Support',
+        amount: 200,
+        frequency: 'Monthly',
+        planId: 'plan_QS2gghK7JzEJ71',
+      }),
+    },
     {
       icon: GraduationCap,
       title: 'Adopt a Child',
